@@ -44,7 +44,7 @@
 
     /* ===== Calendario de la temporada ===== */
     .cal-card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 18px; margin-top: 20px; }
+      padding: 18px; }
     .cal-titulo { font-size: 13px; font-weight: 700; color: #1B4332; text-transform: uppercase;
       letter-spacing: 1px; margin-bottom: 4px; }
     .cal-nota { font-size: 11px; color: #999; margin-bottom: 14px; }
@@ -100,6 +100,21 @@
   <a class="volver" href="temporadas.html">← Todas las temporadas</a>
   <h1 class="temporada-titulo">Temporada 2026</h1>
 
+  <div class="cal-card">
+    <div class="cal-titulo">Calendario de la temporada</div>
+    <div class="cal-nota">Las fechas con círculo relleno están confirmadas; las de trazo discontinuo son tentativas.</div>
+    <div id="calendario"></div>
+    <div id="leyenda">
+      <span class="ley-item"><span class="ley-punto" style="background:#B45309"></span>Apertura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#1B4332"></span>La Liga Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#6D28D9"></span>Ryder Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
+      <span class="ley-item"><span class="ley-tent"></span>Fecha tentativa</span>
+    </div>
+  </div>
+
+
   <!-- Datos de eventos según Circular #02/25 (calendario 2026) y Circular #05/25.
        Badges: badge-vivo (En juego), badge-prox (Próximamente), badge-doc (Celebrado / Por documentar). -->
 
@@ -127,7 +142,7 @@
     <div class="e-row">
       <div class="e-info">
         <div class="e-nombre">XXXIV La Liga Tecnatom</div>
-        <div class="e-detalle">10 jornadas en jueves · 18 junio – 17 septiembre · puntúan las 4 mejores tarjetas · clasificaciones, resultados y hándicaps en directo</div>
+        <div class="e-detalle">10 jornadas (jueves, salvo J7 el martes 28 jul) · 18 junio – 17 septiembre · puntúan las 4 mejores tarjetas · clasificaciones, resultados y hándicaps en directo</div>
       </div>
       <div class="e-badge badge-vivo">En juego</div>
     </div>
@@ -155,20 +170,6 @@
 
   <!-- ✏️ AÑADIR EVENTOS SUELTOS AQUÍ si los hay este año: copia un bloque .evento -->
 
-  <div class="cal-card">
-    <div class="cal-titulo">Calendario de la temporada</div>
-    <div class="cal-nota">Las fechas con círculo relleno están confirmadas; las de trazo discontinuo son tentativas.</div>
-    <div id="calendario"></div>
-    <div id="leyenda">
-      <span class="ley-item"><span class="ley-punto" style="background:#B45309"></span>Apertura</span>
-      <span class="ley-item"><span class="ley-punto" style="background:#1B4332"></span>La Liga Tecnatom</span>
-      <span class="ley-item"><span class="ley-punto" style="background:#6D28D9"></span>Ryder Tecnatom</span>
-      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
-      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
-      <span class="ley-item"><span class="ley-tent"></span>Fecha tentativa</span>
-    </div>
-  </div>
-
 </div>
 
 <footer>
@@ -176,7 +177,7 @@
 </footer>
 
 <script>
-/* ✏️ EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
+/* EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
    tipo: 'apertura' | 'liga' | 'ryder' | 'clausura' | 'otro'
    tent: true = fecha tentativa (círculo discontinuo); quitar tent al confirmarla. */
 const ANIO = 2026;
@@ -192,7 +193,7 @@ const EVENTOS = [
   { fecha: '2026-07-09', tipo: 'liga' },
   { fecha: '2026-07-16', tipo: 'liga' },
   { fecha: '2026-07-23', tipo: 'liga' },
-  { fecha: '2026-07-30', tipo: 'liga' },
+  { fecha: '2026-07-28', tipo: 'liga' },
   { fecha: '2026-09-03', tipo: 'liga' },
   { fecha: '2026-09-10', tipo: 'liga' },
   { fecha: '2026-09-17', tipo: 'liga' },
