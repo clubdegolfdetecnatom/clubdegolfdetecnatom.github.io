@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historia · Club de Golf de Tecnatom</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
+    a { color: inherit; }
+    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
+    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
+    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
+    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
+    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
+      padding: 9px 14px; font-size: 12px; font-weight: 600;
+      border-radius: 8px 8px 0 0; white-space: nowrap; }
+    .nav-btn.active { background: white; color: #1B4332; }
+    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
+    .card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px; overflow: hidden; }
+    .card-body { padding: 18px; }
+    .card-title { font-size: 13px; font-weight: 700; color: #1B4332; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+    p { font-size: 14px; line-height: 1.65; color: #333; margin-bottom: 12px; }
+
+    /* ===== Línea de tiempo ===== */
+    .hito { display: flex; gap: 14px; margin-bottom: 16px; }
+    .hito:last-child { margin-bottom: 0; }
+    .hito-anio { font-size: 14px; font-weight: 700; color: #1B4332; min-width: 48px;
+      border-right: 3px solid #D1FAE5; padding-right: 12px; }
+    .hito-texto { font-size: 13px; line-height: 1.55; color: #444; padding-top: 1px; }
+
+    /* ===== Palmarés ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #1B4332; color: white; padding: 9px 8px; text-align: left; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 9px 8px; border-bottom: 1px solid #f0f0f0; }
+    tr:nth-child(even) td { background: #FAFBFA; }
+    .pend { color: #bbb; font-style: italic; }
+    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <div id="header-inner">
+    <div id="header-top">
+      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
+      <div>
+        <div id="header-title">Club de Golf de Tecnatom</div>
+        <div id="header-sub">Nuestra historia</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a class="nav-btn" href="index.html">Inicio</a>
+      <a class="nav-btn active" href="historia.html">Historia</a>
+      <a class="nav-btn" href="temporadas.html">Temporadas</a>
+      <a class="nav-btn" href="galeria.html">Galería</a>
+    </nav>
+  </div>
+</div>
+
+<div id="content">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">Más de treinta años de golf entre amigos</div>
+      <!-- ✏️ EDITAR AQUÍ: texto introductorio de la historia (borrador de Teebot, pendiente de que Fernando aporte los datos reales) -->
+      <p>La historia del club está aún por escribir en esta página. Aquí irán los orígenes, los campos que nos vieron crecer y las anécdotas que todo socio veterano cuenta al menos una vez por temporada.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">Hitos</div>
+      <!-- ✏️ AÑADIR HITOS AQUÍ: copia un bloque .hito, cambia el año y el texto. Los de abajo son ejemplos orientativos. -->
+      <div class="hito">
+        <div class="hito-anio">1993</div>
+        <div class="hito-texto">Un grupo de compañeros de Tecnatom disputa el primer campeonato del club. <em>(Año y detalle por confirmar.)</em></div>
+      </div>
+      <div class="hito">
+        <div class="hito-anio">2026</div>
+        <div class="hito-texto">XXXIV edición del campeonato, la primera con portal web propio, clasificaciones en directo y una oficina de competición asistida por inteligencia artificial: el CaddIA Master.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">Palmarés de La Liga Tecnatom</div>
+      <!-- ✏️ AÑADIR CAMPEONES AQUÍ: copia una fila <tr> y rellena los datos de cada edición -->
+      <table>
+        <tr><th>Liga</th><th>Año</th><th>Campeón Hándicap</th><th>Campeón Scratch</th></tr>
+        <tr><td>XXXIV</td><td>2026</td><td class="pend">En juego</td><td class="pend">En juego</td></tr>
+        <tr><td>XXXIII</td><td>2025</td><td class="pend">Por documentar</td><td class="pend">Por documentar</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
+</footer>
+
+</body>
+</html>

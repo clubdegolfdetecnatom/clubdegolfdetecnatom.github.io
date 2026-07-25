@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galería · Club de Golf de Tecnatom</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
+    a { color: inherit; }
+    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
+    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
+    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
+    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
+    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
+      padding: 9px 14px; font-size: 12px; font-weight: 600;
+      border-radius: 8px 8px 0 0; white-space: nowrap; }
+    .nav-btn.active { background: white; color: #1B4332; }
+    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
+    .aviso { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      padding: 40px 24px; text-align: center; }
+    .aviso .icono { font-size: 34px; margin-bottom: 12px; }
+    .aviso h2 { font-size: 16px; color: #1B4332; margin-bottom: 8px; }
+    .aviso p { font-size: 13px; color: #777; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <div id="header-inner">
+    <div id="header-top">
+      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
+      <div>
+        <div id="header-title">Club de Golf de Tecnatom</div>
+        <div id="header-sub">Galería histórica</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a class="nav-btn" href="index.html">Inicio</a>
+      <a class="nav-btn" href="historia.html">Historia</a>
+      <a class="nav-btn" href="temporadas.html">Temporadas</a>
+      <a class="nav-btn active" href="galeria.html">Galería</a>
+    </nav>
+  </div>
+</div>
+
+<div id="content">
+  <div class="aviso">
+    <div class="icono">📷</div>
+    <h2>Estamos revelando el carrete</h2>
+    <p>La galería histórica del club está en preparación. Muy pronto podrás recorrer aquí las fotos de todas las temporadas.</p>
+    <p style="margin-top:10px">¿Tienes fotos antiguas del club? Envíalas a clubdegolfdetecnatom@gmail.com y les daremos su sitio en la historia.</p>
+  </div>
+</div>
+
+<footer>
+  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
+</footer>
+
+</body>
+</html>
