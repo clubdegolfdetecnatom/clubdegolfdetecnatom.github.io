@@ -20,11 +20,47 @@
       border-radius: 8px 8px 0 0; white-space: nowrap; }
     .nav-btn.active { background: white; color: #1B4332; }
     #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
-    .aviso { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 40px 24px; text-align: center; }
-    .aviso .icono { font-size: 34px; margin-bottom: 12px; }
-    .aviso h2 { font-size: 16px; color: #1B4332; margin-bottom: 8px; }
-    .aviso p { font-size: 13px; color: #777; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+    h1.tit { font-size: 18px; color: #1B4332; margin-bottom: 4px; }
+    .sub { font-size: 12px; color: #999; margin-bottom: 16px; }
+
+    /* Filtro por temporada */
+    #filtros { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+    .filtro { font-size: 12px; font-weight: 700; padding: 7px 14px; border-radius: 20px;
+      border: 1.5px solid #1B4332; background: white; color: #1B4332; cursor: pointer; }
+    .filtro.on { background: #1B4332; color: white; }
+
+    /* Tarjeta de evento */
+    .evento { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 14px; overflow: hidden; }
+    .ev-cab { padding: 14px 16px 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ev-info .ev-nom { font-size: 15px; font-weight: 700; color: #1B4332; }
+    .ev-info .ev-meta { font-size: 12px; color: #999; margin-top: 2px; }
+    .ev-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+      background: #D1FAE5; color: #1B4332; white-space: nowrap; }
+    .ev-badge.arch { background: #eee; color: #888; }
+    .ev-fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 4px; padding: 0 6px 6px; }
+    .ev-fotos img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px;
+      cursor: pointer; display: block; background: #eee; transition: opacity .15s; }
+    .ev-fotos img:hover { opacity: .85; }
+
+    .vacio { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      padding: 30px 24px; text-align: center; font-size: 13px; color: #999; }
+
+    /* Lightbox */
+    #lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92);
+      z-index: 100; align-items: center; justify-content: center; }
+    #lb.on { display: flex; }
+    #lb img { max-width: 94vw; max-height: 88vh; border-radius: 6px; }
+    #lb-cerrar { position: absolute; top: 16px; right: 20px; color: white; font-size: 30px;
+      cursor: pointer; line-height: 1; background: none; border: none; }
+    #lb-cap { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center;
+      color: rgba(255,255,255,.85); font-size: 13px; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white;
+      font-size: 40px; cursor: pointer; background: none; border: none; padding: 0 16px; user-select: none; }
+    #lb-prev { left: 4px; } #lb-next { right: 4px; }
+
     footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
   </style>
 </head>
@@ -36,7 +72,7 @@
       <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
       <div>
         <div id="header-title">Club de Golf de Tecnatom</div>
-        <div id="header-sub">Galería histórica</div>
+        <div id="header-sub">Galería</div>
       </div>
     </div>
     <nav id="nav">
@@ -49,17 +85,95 @@
 </div>
 
 <div id="content">
-  <div class="aviso">
-    <div class="icono">📷</div>
-    <h2>Estamos revelando el carrete</h2>
-    <p>La galería histórica del club está en preparación. Muy pronto podrás recorrer aquí las fotos de todas las temporadas.</p>
-    <p style="margin-top:10px">¿Tienes fotos antiguas del club? Envíalas a clubdegolfdetecnatom@gmail.com y les daremos su sitio en la historia.</p>
-  </div>
+  <h1 class="tit">Galería del club</h1>
+  <div class="sub">Las fotos de cada jornada y evento, de la más reciente a la más antigua.</div>
+
+  <div id="filtros"></div>
+  <div id="lista"></div>
+</div>
+
+<div id="lb">
+  <button id="lb-cerrar" aria-label="Cerrar">&times;</button>
+  <button class="lb-nav" id="lb-prev" aria-label="Anterior">&#8249;</button>
+  <img id="lb-img" src="" alt=""/>
+  <button class="lb-nav" id="lb-next" aria-label="Siguiente">&#8250;</button>
+  <div id="lb-cap"></div>
 </div>
 
 <footer>
   Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
 </footer>
 
+<script>
+// ===== Base de fotos en Supabase Storage =====
+const SUPA = 'https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/resultados/galeria/';
+
+// ✏️ AÑADIR EVENTOS AQUÍ: el más reciente arriba. Cada foto es una ruta dentro del bucket.
+const EVENTOS = [
+  {
+    id: 'j6-herreria', anio: 2026, actual: true,
+    nombre: 'J6 · Real Club La Herrería',
+    meta: '23 jul 2026 · 39 pts de Miguel Ángel Guerra',
+    fotos: ['2026/j6-herreria/foto1.jpg', '2026/j6-herreria/foto2.jpg']
+  }
+  // Ejemplo de cómo se añadirían más:
+  // { id:'clausura-2025', anio:2025, actual:false, nombre:'Clausura · Chiclana',
+  //   meta:'8-9 nov 2025', fotos:['2025/clausura/foto1.jpg', ...] }
+];
+
+// ===== Render =====
+const anios = [...new Set(EVENTOS.map(e => e.anio))].sort((a,b)=>b-a);
+let filtro = 'todas';
+
+const cF = document.getElementById('filtros');
+function pintaFiltros(){
+  let h = '<button class="filtro'+(filtro==='todas'?' on':'')+'" data-a="todas">Todas</button>';
+  anios.forEach(a => { h += '<button class="filtro'+(filtro==a?' on':'')+'" data-a="'+a+'">'+a+'</button>'; });
+  cF.innerHTML = h;
+  cF.querySelectorAll('.filtro').forEach(b => b.onclick = () => { filtro = b.dataset.a; pintaFiltros(); pintaLista(); });
+}
+
+let planas = []; // lista plana de {url, cap} para el lightbox
+const cL = document.getElementById('lista');
+function pintaLista(){
+  const evs = EVENTOS.filter(e => filtro==='todas' || e.anio==filtro);
+  planas = [];
+  if(!evs.length){ cL.innerHTML = '<div class="vacio">Aún no hay fotos de esta temporada.</div>'; return; }
+  let h = '';
+  evs.forEach(e => {
+    h += '<div class="evento"><div class="ev-cab"><div class="ev-info">'
+      + '<div class="ev-nom">'+e.nombre+'</div><div class="ev-meta">'+e.meta+'</div></div>'
+      + '<div class="ev-badge'+(e.actual?'':' arch')+'">'+e.anio+'</div></div>'
+      + '<div class="ev-fotos">';
+    e.fotos.forEach(f => {
+      const url = SUPA + f;
+      const idx = planas.length;
+      planas.push({url, cap: e.nombre});
+      h += '<img loading="lazy" src="'+url+'" alt="'+e.nombre+'" data-i="'+idx+'"/>';
+    });
+    h += '</div></div>';
+  });
+  cL.innerHTML = h;
+  cL.querySelectorAll('.ev-fotos img').forEach(img => img.onclick = () => abrir(+img.dataset.i));
+}
+
+// ===== Lightbox =====
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+let cur = 0;
+function abrir(i){ cur = i; lbImg.src = planas[i].url; lbCap.textContent = planas[i].cap; lb.classList.add('on'); }
+function cerrar(){ lb.classList.remove('on'); lbImg.src=''; }
+function mover(d){ cur = (cur + d + planas.length) % planas.length; lbImg.src = planas[cur].url; lbCap.textContent = planas[cur].cap; }
+document.getElementById('lb-cerrar').onclick = cerrar;
+document.getElementById('lb-prev').onclick = () => mover(-1);
+document.getElementById('lb-next').onclick = () => mover(1);
+lb.onclick = (e) => { if(e.target === lb) cerrar(); };
+document.addEventListener('keydown', e => {
+  if(!lb.classList.contains('on')) return;
+  if(e.key==='Escape') cerrar(); if(e.key==='ArrowLeft') mover(-1); if(e.key==='ArrowRight') mover(1);
+});
+
+pintaFiltros();
+pintaLista();
+</script>
 </body>
 </html>
