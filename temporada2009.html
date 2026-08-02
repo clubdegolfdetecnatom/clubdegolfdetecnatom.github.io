@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Temporada 2009 · Club de Golf de Tecnatom</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
+    a { color: inherit; }
+    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
+    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
+    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
+    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
+    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
+      padding: 9px 14px; font-size: 12px; font-weight: 600;
+      border-radius: 8px 8px 0 0; white-space: nowrap; }
+    .nav-btn.active { background: white; color: #1B4332; }
+    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
+
+    .volver { display: inline-block; font-size: 12px; color: #888; text-decoration: none; margin-bottom: 12px; }
+    .volver:hover { color: #1B4332; }
+    h1.temporada-titulo { font-size: 18px; color: #1B4332; margin-bottom: 14px; }
+
+    /* ===== Tarjetas de evento ===== */
+    .evento { display: block; text-decoration: none; background: white; border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 16px 18px; margin-bottom: 12px;
+      border: 2px solid transparent; }
+    .evento.destacado { border-color: #1B4332; }
+    .evento.pendiente { opacity: 0.6; }
+    .e-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .e-info { flex: 1; }
+    .e-nombre { font-size: 15px; font-weight: 700; color: #1B4332; }
+    .e-detalle { font-size: 12px; color: #999; margin-top: 3px; line-height: 1.5; }
+    .e-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      padding: 5px 10px; border-radius: 20px; white-space: nowrap; }
+    .badge-vivo { background: #D1FAE5; color: #1B4332; }
+    .badge-doc { background: #eee; color: #888; }
+    .badge-prox { background: #FEF3C7; color: #92400E; }
+    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
+
+    /* ===== Calendario de la temporada ===== */
+    .cal-card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      padding: 18px; }
+    .cal-titulo { font-size: 13px; font-weight: 700; color: #1B4332; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 4px; }
+    .cal-nota { font-size: 11px; color: #999; margin-bottom: 14px; }
+    #calendario { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+    .mes { border: 1px solid #f0f0f0; border-radius: 10px; padding: 10px 8px 8px; }
+    .mes-nombre { font-size: 11px; font-weight: 700; color: #1B4332; text-transform: uppercase;
+      letter-spacing: 1px; text-align: center; margin-bottom: 6px; }
+    .mes-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
+    .dia-cab { font-size: 8px; color: #bbb; text-align: center; font-weight: 700; padding-bottom: 2px; }
+    .dia { font-size: 10px; text-align: center; color: #666; padding: 3px 0; border-radius: 50%;
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid transparent; }
+    .dia.vacio { visibility: hidden; }
+    .ev-liga     { background: #1B4332; color: white; font-weight: 700; }
+    .ev-apertura { background: #B45309; color: white; font-weight: 700; }
+    .ev-ryder    { background: #6D28D9; color: white; font-weight: 700; }
+    .ev-clausura { background: #BE123C; color: white; font-weight: 700; }
+    .ev-otro     { background: #475569; color: white; font-weight: 700; }
+    .dia.tentativo { background: transparent; font-weight: 700; border-style: dashed; }
+    .dia.tentativo.ev-liga     { color: #1B4332; border-color: #1B4332; }
+    .dia.tentativo.ev-apertura { color: #B45309; border-color: #B45309; }
+    .dia.tentativo.ev-ryder    { color: #6D28D9; border-color: #6D28D9; }
+    .dia.tentativo.ev-clausura { color: #BE123C; border-color: #BE123C; }
+    .dia.tentativo.ev-otro     { color: #475569; border-color: #475569; }
+    #leyenda { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; font-size: 11px; color: #666; }
+    .ley-item { display: flex; align-items: center; gap: 5px; }
+    .ley-punto { width: 11px; height: 11px; border-radius: 50%; }
+    .ley-tent { width: 11px; height: 11px; border-radius: 50%; border: 1.5px dashed #999; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <div id="header-inner">
+    <div id="header-top">
+      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
+      <div>
+        <div id="header-title">Club de Golf de Tecnatom</div>
+        <div id="header-sub">Temporada 2009</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a class="nav-btn" href="index.html">Inicio</a>
+      <a class="nav-btn" href="historia.html">Historia</a>
+      <a class="nav-btn active" href="temporadas.html">Temporadas</a>
+      <a class="nav-btn" href="galeria.html">Galería</a>
+    </nav>
+  </div>
+</div>
+
+<div id="content">
+  <a class="volver" href="temporadas.html">← Todas las temporadas</a>
+  <h1 class="temporada-titulo">Temporada 2009 · XVII Campeonato</h1>
+  <div style="background:#FEF3C7;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#92400E;line-height:1.5;">
+    ⚠️ Datos reconstruidos del archivo de circulares y del Cuadro de Honor del club. Algunos resultados no se conservan completos.
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Campeonato de Apertura</div>
+        <div class="e-detalle">28 mar 2009 · Campo de Golf de Palomarejos<br/>José Mª Sánchez (33 pts) · Gloria Dolado (32) · Luis Hernández (31)</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">XVII Campeonato de Golf de Tecnatom · La Liga</div>
+        <div class="e-detalle">Mayo–julio · 10 jornadas · La Alcarria, Palomarejos, Retamares, El Robledal, Torrejón, La Herrería y RSHECC (Norte)<br/><strong>Stableford:</strong> 1º Miguel Á. Guillén (176 pts) · 2º José Mª Sánchez (173) · 3º José M. Primo (165) · 4º Manuel Cabañas (164) · 5º Emilio Bachiller (156)</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Adheridos 2009</div>
+        <div class="e-detalle">1ª Gloria Dolado (134 pts) · 2º Miguel Á. Guillén (100) · 3º Manuel Cabañas (99)</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">AA Cup 2009</div>
+        <div class="e-detalle">Septiembre 2009 · match play por equipos.</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Juegos de Otoño</div>
+        <div class="e-detalle">21 nov 2009 · Campo de Golf de Valdeluz</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Campeonato de Clausura</div>
+        <div class="e-detalle">8 nov 2009 · Campo de Golf de Izki (Álava)<br/><strong>Suspendido</strong> por el mal tiempo. Se recuperó en abril de 2010 con el Trofeo Express Truck.</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<footer>
+  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
+</footer>
+
+<script>
+const ANIO = 2024;
+const EVENTOS = [
+  { fecha: '2024-10-26', tipo: 'otro' },
+];
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DIAS = ['L','M','X','J','V','S','D'];
+const mapa = {};
+EVENTOS.forEach(e => { mapa[e.fecha] = e; });
+const cont = document.getElementById('calendario');
+if (cont) {
+for (let m = 0; m < 12; m++) {
+  const mes = document.createElement('div'); mes.className = 'mes';
+  mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
+  const grid = document.createElement('div'); grid.className = 'mes-grid';
+  DIAS.forEach(d => { grid.innerHTML += '<div class="dia-cab">' + d + '</div>'; });
+  const primero = new Date(ANIO, m, 1);
+  let offset = (primero.getDay() + 6) % 7;
+  for (let v = 0; v < offset; v++) grid.innerHTML += '<div class="dia vacio">·</div>';
+  const nDias = new Date(ANIO, m + 1, 0).getDate();
+  for (let d = 1; d <= nDias; d++) {
+    const clave = ANIO + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const ev = mapa[clave];
+    let cls = 'dia';
+    if (ev) { cls += ' ev-' + ev.tipo; if (ev.tent) cls += ' tentativo'; }
+    grid.innerHTML += '<div class="' + cls + '">' + d + '</div>';
+  }
+  mes.appendChild(grid);
+  cont.appendChild(mes);
+}
+}
+</script>
+</body>
+</html>
