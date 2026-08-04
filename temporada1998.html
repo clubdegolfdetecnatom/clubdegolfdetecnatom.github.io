@@ -42,37 +42,6 @@
     .badge-prox { background: #FEF3C7; color: #92400E; }
     footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
 
-    /* ===== Calendario de la temporada ===== */
-    .cal-card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 18px; }
-    .cal-titulo { font-size: 13px; font-weight: 700; color: #1B4332; text-transform: uppercase;
-      letter-spacing: 1px; margin-bottom: 4px; }
-    .cal-nota { font-size: 11px; color: #999; margin-bottom: 14px; }
-    #calendario { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-    .mes { border: 1px solid #f0f0f0; border-radius: 10px; padding: 10px 8px 8px; }
-    .mes-nombre { font-size: 11px; font-weight: 700; color: #1B4332; text-transform: uppercase;
-      letter-spacing: 1px; text-align: center; margin-bottom: 6px; }
-    .mes-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
-    .dia-cab { font-size: 8px; color: #bbb; text-align: center; font-weight: 700; padding-bottom: 2px; }
-    .dia { font-size: 10px; text-align: center; color: #666; padding: 3px 0; border-radius: 50%;
-      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-      border: 1.5px solid transparent; }
-    .dia.vacio { visibility: hidden; }
-    .ev-liga     { background: #1B4332; color: white; font-weight: 700; }
-    .ev-apertura { background: #B45309; color: white; font-weight: 700; }
-    .ev-ryder    { background: #6D28D9; color: white; font-weight: 700; }
-    .ev-clausura { background: #BE123C; color: white; font-weight: 700; }
-    .ev-otro     { background: #475569; color: white; font-weight: 700; }
-    .dia.tentativo { background: transparent; font-weight: 700; border-style: dashed; }
-    .dia.tentativo.ev-liga     { color: #1B4332; border-color: #1B4332; }
-    .dia.tentativo.ev-apertura { color: #B45309; border-color: #B45309; }
-    .dia.tentativo.ev-ryder    { color: #6D28D9; border-color: #6D28D9; }
-    .dia.tentativo.ev-clausura { color: #BE123C; border-color: #BE123C; }
-    .dia.tentativo.ev-otro     { color: #475569; border-color: #475569; }
-    #leyenda { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; font-size: 11px; color: #666; }
-    .ley-item { display: flex; align-items: center; gap: 5px; }
-    .ley-punto { width: 11px; height: 11px; border-radius: 50%; }
-    .ley-tent { width: 11px; height: 11px; border-radius: 50%; border: 1.5px dashed #999; }
   </style>
 </head>
 <body>
@@ -122,43 +91,9 @@
 
 </div>
 
-</div>
-
 <footer>
   Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
 </footer>
 
-<script>
-const ANIO = 2024;
-const EVENTOS = [
-  { fecha: '2024-10-26', tipo: 'otro' },
-];
-const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-const DIAS = ['L','M','X','J','V','S','D'];
-const mapa = {};
-EVENTOS.forEach(e => { mapa[e.fecha] = e; });
-const cont = document.getElementById('calendario');
-if (cont) {
-for (let m = 0; m < 12; m++) {
-  const mes = document.createElement('div'); mes.className = 'mes';
-  mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
-  const grid = document.createElement('div'); grid.className = 'mes-grid';
-  DIAS.forEach(d => { grid.innerHTML += '<div class="dia-cab">' + d + '</div>'; });
-  const primero = new Date(ANIO, m, 1);
-  let offset = (primero.getDay() + 6) % 7;
-  for (let v = 0; v < offset; v++) grid.innerHTML += '<div class="dia vacio">·</div>';
-  const nDias = new Date(ANIO, m + 1, 0).getDate();
-  for (let d = 1; d <= nDias; d++) {
-    const clave = ANIO + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
-    const ev = mapa[clave];
-    let cls = 'dia';
-    if (ev) { cls += ' ev-' + ev.tipo; if (ev.tent) cls += ' tentativo'; }
-    grid.innerHTML += '<div class="' + cls + '">' + d + '</div>';
-  }
-  mes.appendChild(grid);
-  cont.appendChild(mes);
-}
-}
-</script>
 </body>
 </html>
