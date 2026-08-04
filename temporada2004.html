@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Temporada 2004 · Club de Golf de Tecnatom</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
+    a { color: inherit; }
+    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
+    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
+    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
+    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
+    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
+      padding: 9px 14px; font-size: 12px; font-weight: 600;
+      border-radius: 8px 8px 0 0; white-space: nowrap; }
+    .nav-btn.active { background: white; color: #1B4332; }
+    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
+
+    .volver { display: inline-block; font-size: 12px; color: #888; text-decoration: none; margin-bottom: 12px; }
+    .volver:hover { color: #1B4332; }
+    h1.temporada-titulo { font-size: 18px; color: #1B4332; margin-bottom: 14px; }
+
+    /* ===== Tarjetas de evento ===== */
+    .evento { display: block; text-decoration: none; background: white; border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 16px 18px; margin-bottom: 12px;
+      border: 2px solid transparent; }
+    .evento.destacado { border-color: #1B4332; }
+    .evento.pendiente { opacity: 0.6; }
+    .e-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .e-info { flex: 1; }
+    .e-nombre { font-size: 15px; font-weight: 700; color: #1B4332; }
+    .e-detalle { font-size: 12px; color: #999; margin-top: 3px; line-height: 1.5; }
+    .e-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      padding: 5px 10px; border-radius: 20px; white-space: nowrap; }
+    .badge-vivo { background: #D1FAE5; color: #1B4332; }
+    .badge-doc { background: #eee; color: #888; }
+    .badge-prox { background: #FEF3C7; color: #92400E; }
+    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
+
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <div id="header-inner">
+    <div id="header-top">
+      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
+      <div>
+        <div id="header-title">Club de Golf de Tecnatom</div>
+        <div id="header-sub">Temporada 2004</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a class="nav-btn" href="index.html">Inicio</a>
+      <a class="nav-btn" href="historia.html">Historia</a>
+      <a class="nav-btn active" href="temporadas.html">Temporadas</a>
+      <a class="nav-btn" href="galeria.html">Galería</a>
+    </nav>
+  </div>
+</div>
+
+<div id="content">
+  <a class="volver" href="temporadas.html">← Todas las temporadas</a>
+  <h1 class="temporada-titulo">Temporada 2004 · XII Campeonato</h1>
+  <div style="background:#FEF3C7;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#92400E;line-height:1.5;">
+    ⚠️ Los datos de esta temporada se han reconstruido a partir del archivo de circulares conservado. Algunos resultados no se conservan.
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">La Liga 2004</div>
+        <div class="e-detalle">Febrero–julio según el archivo (circulares #01/04 a #25/04)<br/>Campos citados: Pablo Hernández (Novés), Cabanillas y El Saler.<br/>No se conservan las clasificaciones de esta temporada.</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Normas del Club de Golf de Tecnatom</div>
+        <div class="e-detalle">Junio 2004 · el club formaliza por escrito su reglamento de competición (documento «Normas CdeGdeTec»).</div>
+      </div>
+      <div class="e-badge badge-doc">Archivo</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
+</footer>
+
+</body>
+</html>
