@@ -105,84 +105,60 @@
 </footer>
 
 <script>
-// ===== Base de fotos en Supabase Storage =====
-const SUPA = 'https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/resultados/galeria/';
+// ===== Las fotos viven en Supabase =====
+// No hay que editar este fichero para añadir fotos: la galería lee las tablas
+// "eventos_fotos" (un evento por fila) y "fotos" (una foto por fila) y se pinta sola.
+// Las fotos nuevas se suben desde el portal del campeonato, pestaña Administración.
+const SB_REST   = 'https://peztstoiswhmlmpyhefl.supabase.co/rest/v1';
+const SB_PUBLIC = 'https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public';
+const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBlenRzdG9pc3dobWxtcHloZWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1Mzk5MTMsImV4cCI6MjA5NzExNTkxM30.D-e9iyp8tXU_mQ8Jd7fx3qL36cyW6hOdJF7hSIAnxqU';
 
-// ✏️ AÑADIR EVENTOS AQUÍ: el más reciente arriba. Cada foto es una ruta dentro del bucket.
-const EVENTOS = [
-  {
-    id: 'j6-herreria', anio: 2026, actual: true,
-    nombre: 'J6 · Real Club La Herrería',
-    meta: '23 jul 2026 · 39 pts de Miguel Ángel Guerra',
-    fotos: ['2026/j6-herreria/foto1.jpg', '2026/j6-herreria/foto2.jpg']
-  },
-  {
-    id: 'j5-santander', anio: 2026, actual: true,
-    nombre: 'J5 · Golf Santander',
-    meta: '16 jul 2026 · Boadilla del Monte',
-    fotos: ['2026/j5-santander/foto1.jpg', '2026/j5-santander/foto2.jpg', '2026/j5-santander/foto3.jpg']
-  },
-  {
-    id: 'j4-cng', anio: 2026, actual: true,
-    nombre: 'J4 · Centro Nacional de Golf',
-    meta: '9 jul 2026 · Madrid',
-    fotos: ['2026/j4-cng/foto1.jpg']
-  },
-  {
-    id: 'j3-robledal', anio: 2026, actual: true,
-    nombre: 'J3 · El Robledal',
-    meta: '2 jul 2026 · 36 pts de Gloria Dolado en un campo muy exigente',
-    fotos: ['2026/j3-robledal/foto1.jpg', '2026/j3-robledal/foto2.jpg', '2026/j3-robledal/foto3.jpg']
-  },
-  {
-    id: 'j2-ladehesa', anio: 2026, actual: true,
-    nombre: 'J2 · La Dehesa',
-    meta: '25 jun 2026 · Villanueva de la Cañada',
-    fotos: ['2026/j2-ladehesa/foto1.jpg']
-  },
-  {
-    id: 'j1-montealvar', anio: 2026, actual: true,
-    nombre: 'J1 · Montealvar',
-    meta: '18 jun 2026 · arranque del XXXIV Campeonato',
-    fotos: ['2026/j1-montealvar/foto1.jpg']
-  },
-  {
-    id: 'cordero-lerma', anio: 2026, actual: true,
-    nombre: 'Golf + Cordero · Lerma',
-    meta: '11 jun 2026 · del hoyo 1 al 19',
-    fotos: ['2026/cordero-lerma/foto1.jpg', '2026/cordero-lerma/foto2.jpg']
-  },
-  {
-    id: 'apertura-ulzama', anio: 2026, actual: true,
-    nombre: 'Campeonato de Apertura · Ulzama',
-    meta: 'mayo 2026 · Navarra',
-    fotos: ['2026/apertura-ulzama/foto1.jpg']
-  },
-  {
-    id: 'clausura-2001', anio: 2001, actual: false,
-    nombre: 'Clausura 2001 · Augusta Golf Calatayud',
-    meta: '9 nov 2001 · entrega de premios — ganan Fernando Ortega + Javier Bros',
-    fotos: ['2001/clausura/clausura2001_1os.jpg', '2001/clausura/clausura2001_2os.jpg', '2001/clausura/clausura2001_bandera.jpg']
-  },
-  {
-    id: 'open-2001', anio: 2001, actual: false,
-    nombre: 'VII Open de Tecnatom · Atalaya (Estepona)',
-    meta: '13 oct 2001 · gana Javier Bros — instantáneas del torneo',
-    fotos: ['2001/open/open2001_01.jpg','2001/open/open2001_02.jpg','2001/open/open2001_03.jpg','2001/open/open2001_04.jpg','2001/open/open2001_05.jpg','2001/open/open2001_06.jpg','2001/open/open2001_07.jpg','2001/open/open2001_08.jpg','2001/open/open2001_09.jpg','2001/open/open2001_10.jpg','2001/open/tecnatom2001_partida.jpg']
-  },
-  {
-    id: 'campeones-2001', anio: 2001, actual: false,
-    nombre: 'Campeones 2001 · entrega de trofeos',
-    meta: '2001 · campeones de 1ª y 2ª categoría, trofeos y ganadores del putt',
-    fotos: ['2001/campeones/campeones2001_categorias.jpg', '2001/campeones/campeones2001_trofeos.jpg', '2001/campeones/campeones2001_putt.jpg']
-  }
-];
-
-// ===== Render =====
-const anios = [...new Set(EVENTOS.map(e => e.anio))].sort((a,b)=>b-a);
+let EVENTOS = [];   // [{id, anio, actual, nombre, meta, fotos:[{url, mini, pie}]}], el más reciente primero
+let anios = [];
 let filtro = 'todas';
 
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+function urlFoto(bucket, ruta){
+  return SB_PUBLIC + '/' + encodeURIComponent(bucket) + '/' + ruta.split('/').map(encodeURIComponent).join('/');
+}
+async function leer(tabla, params){
+  const r = await fetch(SB_REST + '/' + tabla + '?' + params, { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY } });
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
 const cF = document.getElementById('filtros');
+const cL = document.getElementById('lista');
+
+async function cargar(){
+  cL.innerHTML = '<div class="vacio">Cargando fotos…</div>';
+  try {
+    const [evs, fs] = await Promise.all([
+      leer('eventos_fotos', 'select=id,anio,nombre,meta,fecha&order=anio.desc,fecha.desc.nullslast'),
+      leer('fotos', 'select=evento_id,bucket,ruta,ruta_mini,pie,orden&order=orden.asc,id.asc')
+    ]);
+    const esteAnio = new Date().getFullYear();
+    EVENTOS = evs.map(e => ({
+      id: e.id, anio: e.anio, actual: e.anio === esteAnio, nombre: e.nombre, meta: e.meta || '',
+      fotos: fs.filter(f => f.evento_id === e.id).map(f => ({
+        url: urlFoto(f.bucket, f.ruta),
+        mini: urlFoto(f.bucket, f.ruta_mini || f.ruta),
+        pie: f.pie || ''
+      }))
+    })).filter(e => e.fotos.length > 0);
+    anios = [...new Set(EVENTOS.map(e => e.anio))].sort((a,b)=>b-a);
+    pintaFiltros();
+    pintaLista();
+  } catch(err) {
+    cF.innerHTML = '';
+    cL.innerHTML = '<div class="vacio">No se han podido cargar las fotos. <a href="#" id="reintentar">Reintentar</a></div>';
+    document.getElementById('reintentar').onclick = (ev) => { ev.preventDefault(); cargar(); };
+  }
+}
+
+// ===== Render =====
 function pintaFiltros(){
   let h = '<button class="filtro'+(filtro==='todas'?' on':'')+'" data-a="todas">Todas</button>';
   anios.forEach(a => { h += '<button class="filtro'+(filtro==a?' on':'')+'" data-a="'+a+'">'+a+'</button>'; });
@@ -191,7 +167,6 @@ function pintaFiltros(){
 }
 
 let planas = []; // lista plana de {url, cap} para el lightbox
-const cL = document.getElementById('lista');
 function pintaLista(){
   const evs = EVENTOS.filter(e => filtro==='todas' || e.anio==filtro);
   planas = [];
@@ -199,14 +174,13 @@ function pintaLista(){
   let h = '';
   evs.forEach(e => {
     h += '<div class="evento"><div class="ev-cab"><div class="ev-info">'
-      + '<div class="ev-nom">'+e.nombre+'</div><div class="ev-meta">'+e.meta+'</div></div>'
+      + '<div class="ev-nom">'+esc(e.nombre)+'</div><div class="ev-meta">'+esc(e.meta)+'</div></div>'
       + '<div class="ev-badge'+(e.actual?'':' arch')+'">'+e.anio+'</div></div>'
       + '<div class="ev-fotos">';
     e.fotos.forEach(f => {
-      const url = SUPA + f;
       const idx = planas.length;
-      planas.push({url, cap: e.nombre});
-      h += '<img loading="lazy" src="'+url+'" alt="'+e.nombre+'" data-i="'+idx+'"/>';
+      planas.push({url: f.url, cap: e.nombre + (f.pie ? ' · ' + f.pie : '')});
+      h += '<img loading="lazy" src="'+esc(f.mini)+'" alt="'+esc(f.pie || e.nombre)+'" data-i="'+idx+'"/>';
     });
     h += '</div></div>';
   });
@@ -229,8 +203,7 @@ document.addEventListener('keydown', e => {
   if(e.key==='Escape') cerrar(); if(e.key==='ArrowLeft') mover(-1); if(e.key==='ArrowRight') mover(1);
 });
 
-pintaFiltros();
-pintaLista();
+cargar();
 </script>
 </body>
 </html>
