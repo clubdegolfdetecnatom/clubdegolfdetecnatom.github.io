@@ -4,85 +4,34 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galería · Club de Golf de Tecnatom</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
-    a { color: inherit; }
-    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
-    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
-    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
-    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
-    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
-    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
-    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
-    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
-      padding: 9px 14px; font-size: 12px; font-weight: 600;
-      border-radius: 8px 8px 0 0; white-space: nowrap; }
-    .nav-btn.active { background: white; color: #1B4332; }
-    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
-
-    h1.tit { font-size: 18px; color: #1B4332; margin-bottom: 4px; }
-    .sub { font-size: 12px; color: #999; margin-bottom: 16px; }
-
-    /* Filtro por temporada */
-    #filtros { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-    .filtro { font-size: 12px; font-weight: 700; padding: 7px 14px; border-radius: 20px;
-      border: 1.5px solid #1B4332; background: white; color: #1B4332; cursor: pointer; }
-    .filtro.on { background: #1B4332; color: white; }
-
-    /* Tarjeta de evento */
-    .evento { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      margin-bottom: 14px; overflow: hidden; }
-    .ev-cab { padding: 14px 16px 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .ev-info .ev-nom { font-size: 15px; font-weight: 700; color: #1B4332; }
-    .ev-info .ev-meta { font-size: 12px; color: #999; margin-top: 2px; }
-    .ev-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
-      background: #D1FAE5; color: #1B4332; white-space: nowrap; }
-    .ev-badge.arch { background: #eee; color: #888; }
-    .ev-fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 4px; padding: 0 6px 6px; }
-    .ev-fotos img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px;
-      cursor: pointer; display: block; background: #eee; transition: opacity .15s; }
-    .ev-fotos img:hover { opacity: .85; }
-
-    .vacio { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 30px 24px; text-align: center; font-size: 13px; color: #999; }
-
-    /* Lightbox */
-    #lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92);
-      z-index: 100; align-items: center; justify-content: center; }
-    #lb.on { display: flex; }
-    #lb img { max-width: 94vw; max-height: 88vh; border-radius: 6px; }
-    #lb-cerrar { position: absolute; top: 16px; right: 20px; color: white; font-size: 30px;
-      cursor: pointer; line-height: 1; background: none; border: none; }
-    #lb-cap { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center;
-      color: rgba(255,255,255,.85); font-size: 13px; }
-    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white;
-      font-size: 40px; cursor: pointer; background: none; border: none; padding: 0 16px; user-select: none; }
-    #lb-prev { left: 4px; } #lb-next { right: 4px; }
-
-    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
-  </style>
+  <link rel="icon" href="escudo.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;700&display=swap"/>
+  <link rel="stylesheet" href="estilos.css"/>
 </head>
-<body>
+<body class="pag-galeria">
 
-<div id="header">
-  <div id="header-inner">
-    <div id="header-top">
-      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
-      <div>
-        <div id="header-title">Club de Golf de Tecnatom</div>
-        <div id="header-sub">Galería</div>
-      </div>
-    </div>
-    <nav id="nav">
-      <a class="nav-btn" href="index.html">Inicio</a>
-      <a class="nav-btn" href="historia.html">Historia</a>
-      <a class="nav-btn" href="temporadas.html">Temporadas</a>
-      <a class="nav-btn active" href="galeria.html">Galería</a>
+<!-- ===== Cabecera común (igual en todas las páginas) ===== -->
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <img src="escudo.jpg" alt="Escudo del Club de Golf de Tecnatom" width="52" height="52"/>
+      <span>
+        <span class="marca-nombre">Club de Golf de Tecnatom</span>
+        <span class="marca-lema">Desde 1993 · Madrid</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="index.html">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a href="temporadas.html">Temporadas</a>
+      <a class="activo" href="galeria.html" aria-current="page">Galería</a>
     </nav>
+    <!-- El año y el enlace de este botón se cambian en temporada.js -->
+    <a class="boton-temporada" href="https://clubdegolfdetecnatom.github.io/campeonato2026/"><span class="solo-ancho">Temporada </span><span class="anio-temporada">2026</span></a>
   </div>
-</div>
+</header>
 
 <div id="content">
   <h1 class="tit">Galería del club</h1>
@@ -100,8 +49,12 @@
   <div id="lb-cap"></div>
 </div>
 
-<footer>
-  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
+<!-- ===== Pie común ===== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-nombre">Club de Golf de Tecnatom</div>
+    <div>Web mantenida por la Oficina del CaddIA Master</div>
+  </div>
 </footer>
 
 <script>
@@ -205,5 +158,6 @@ document.addEventListener('keydown', e => {
 
 cargar();
 </script>
+<script src="temporada.js"></script>
 </body>
 </html>

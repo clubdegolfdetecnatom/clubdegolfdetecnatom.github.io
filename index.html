@@ -4,108 +4,539 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Club de Golf de Tecnatom</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #F0F2F0; font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; min-height: 100vh; }
-    a { color: inherit; }
-
-    /* ===== Cabecera común (igual en todas las páginas) ===== */
-    #header { background: linear-gradient(135deg,#1B4332 0%,#2D6A4F 100%); color: white; }
-    #header-inner { max-width: 720px; margin: 0 auto; padding: 20px 14px 0; }
-    #header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
-    #header-top img { width: 46px; height: 46px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
-    #header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
-    #header-sub { font-size: 10px; letter-spacing: 2px; opacity: 0.65; text-transform: uppercase; }
-    #nav { display: flex; overflow-x: auto; margin-top: 14px; }
-    .nav-btn { display: block; text-decoration: none; color: rgba(255,255,255,0.7);
-      padding: 9px 14px; font-size: 12px; font-weight: 600;
-      border-radius: 8px 8px 0 0; white-space: nowrap; }
-    .nav-btn.active { background: white; color: #1B4332; }
-
-    #content { max-width: 720px; margin: 0 auto; padding: 18px 14px 48px; }
-    .card { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px; overflow: hidden; }
-    .card-body { padding: 18px; }
-    .card-title { font-size: 13px; font-weight: 700; color: #1B4332; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-    p { font-size: 14px; line-height: 1.65; color: #333; margin-bottom: 12px; }
-    p:last-child { margin-bottom: 0; }
-
-    /* ===== Portada ===== */
-    #hero { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 28px 22px; margin-bottom: 14px; text-align: center; }
-    #hero h1 { font-size: 22px; color: #1B4332; letter-spacing: -0.5px; margin-bottom: 6px; }
-    #hero .lema { font-size: 13px; color: #888; }
-    #hero .cta { display: inline-block; margin-top: 18px; background: #1B4332; color: white;
-      text-decoration: none; font-size: 13px; font-weight: 600; padding: 11px 22px; border-radius: 8px; }
-    #hero .cta:hover { background: #2D6A4F; }
-
-    .datos { display: flex; gap: 10px; margin-bottom: 14px; }
-    .dato { flex: 1; background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      padding: 14px 8px; text-align: center; }
-    .dato .num { font-size: 20px; font-weight: 700; color: #1B4332; }
-    .dato .lbl { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-
-    footer { max-width: 720px; margin: 0 auto; padding: 0 14px 30px; font-size: 11px; color: #aaa; text-align: center; }
-  </style>
+  <meta name="description" content="Club de Golf de Tecnatom: la temporada en curso, la historia del club desde 1993, todas las temporadas y la galería de fotos."/>
+  <link rel="icon" href="escudo.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;700&display=swap"/>
+  <link rel="stylesheet" href="estilos.css"/>
 </head>
-<body>
+<body class="pag-inicio">
 
-<div id="header">
-  <div id="header-inner">
-    <div id="header-top">
-      <img src="https://raw.githubusercontent.com/clubdegolfdetecnatom/campeonato2026/main/cdgdt.jpg" alt="Escudo del Club de Golf de Tecnatom"/>
-      <div>
-        <div id="header-title">Club de Golf de Tecnatom</div>
-        <div id="header-sub">Desde 1993 · Madrid</div><!-- ✏️ EDITAR: año de fundación si no es correcto -->
-      </div>
-    </div>
-    <nav id="nav">
-      <a class="nav-btn active" href="index.html">Inicio</a>
-      <a class="nav-btn" href="historia.html">Historia</a>
-      <a class="nav-btn" href="temporadas.html">Temporadas</a>
-      <a class="nav-btn" href="galeria.html">Galería</a>
+<!-- ===== Cabecera común (igual en todas las páginas) ===== -->
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <img src="escudo.jpg" alt="Escudo del Club de Golf de Tecnatom" width="52" height="52"/>
+      <span>
+        <span class="marca-nombre">Club de Golf de Tecnatom</span>
+        <span class="marca-lema">Desde 1993 · Madrid</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a class="activo" href="index.html" aria-current="page">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a href="temporadas.html">Temporadas</a>
+      <a href="galeria.html">Galería</a>
     </nav>
+    <a class="boton-temporada" href="https://clubdegolfdetecnatom.github.io/campeonato2026/"><span class="solo-ancho">Temporada </span><span class="anio-temporada">2026</span></a>
   </div>
-</div>
+</header>
 
-<div id="content">
+<main>
 
-  <div id="hero">
-    <!-- ✏️ EDITAR AQUÍ: titular y lema de la portada -->
-    <h1>Bienvenidos al Club de Golf de Tecnatom</h1>
-    <div class="lema">Compañeros, amigos y rivales — dieciocho hoyos cada vez</div>
-    <a class="cta" href="https://clubdegolfdetecnatom.github.io/campeonato2026">Ir a La Liga Tecnatom 2026 →</a>
-  </div>
+  <!-- ===== Temporada actual ===== -->
+  <section class="contenedor inicio" aria-label="Temporada actual">
+    <div class="portada">
+      <!-- Bloque verde: lo rellena el código de abajo con la próxima cita -->
+      <article class="cita" id="cita" aria-live="polite"></article>
 
-  <div class="datos">
-    <!-- ✏️ EDITAR AQUÍ: cifras destacadas del club -->
-    <div class="dato"><div class="num">XXXIV</div><div class="lbl">Ediciones</div></div>
-    <div class="dato"><div class="num">38</div><div class="lbl">Socios</div></div>
-    <div class="dato"><div class="num">10</div><div class="lbl">Jornadas de Liga</div></div>
-  </div>
+      <figure class="foto-portada" id="foto-portada">
+        <figcaption>
+          <!-- ✏️ EDITAR AQUÍ: lema de la portada -->
+          <span class="lema-titulo">Compañeros, amigos y rivales</span>
+          <span class="lema-texto">Dieciocho hoyos cada vez.</span>
+        </figcaption>
+      </figure>
+    </div>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">Quiénes somos</div>
-      <!-- ✏️ EDITAR AQUÍ: texto de presentación del club (borrador de Teebot, pendiente de revisión) -->
+    <nav class="accesos" aria-label="Accesos a la temporada">
+      <a class="acceso" data-portal="inscripcion" href="#">
+        <span class="acceso-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M18 8v6M15 11h6"/></svg></span>
+        <span><span class="acceso-nombre">Inscripción</span><span class="acceso-texto">Apúntate a la próxima cita</span></span>
+      </a>
+      <a class="acceso" data-portal="resultados" href="#">
+        <span class="acceso-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></span>
+        <span><span class="acceso-nombre">Resultados</span><span class="acceso-texto">Jornadas y clasificaciones</span></span>
+      </a>
+      <a class="acceso" data-portal="handicaps" href="#">
+        <span class="acceso-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8"/><path d="M16 7h4v4"/></svg></span>
+        <span><span class="acceso-nombre">Hándicaps</span><span class="acceso-texto">Hándicap de juego al día</span></span>
+      </a>
+      <a class="acceso" data-portal="calendario" href="#">
+        <span class="acceso-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></span>
+        <span><span class="acceso-nombre">Calendario</span><span class="acceso-texto">Fechas, campos y horarios</span></span>
+      </a>
+      <a class="acceso" data-portal="fotos" href="#">
+        <span class="acceso-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span>
+        <span><span class="acceso-nombre">Fotos</span><span class="acceso-texto">Las imágenes de cada jornada</span></span>
+      </a>
+    </nav>
+  </section>
+
+  <!-- ===== Clasificación de la Liga ===== -->
+  <section class="contenedor seccion" id="liga">
+    <div class="cabecera-seccion">
+      <div>
+        <div class="antetitulo" id="liga-antetitulo">La Liga Tecnatom</div>
+        <h2 class="titulo-seccion" id="liga-titulo">Clasificación</h2>
+      </div>
+      <a class="enlace" data-portal="resultados" href="#">Clasificación completa</a>
+    </div>
+    <div class="clasificacion">
+      <div class="tarjeta clas-handicap" id="clas-handicap"></div>
+      <div class="tarjeta clas-scratch" id="clas-scratch"></div>
+    </div>
+  </section>
+
+  <!-- ===== Calendario ===== -->
+  <section class="contenedor seccion" id="agenda">
+    <div class="cabecera-seccion">
+      <h2 class="titulo-seccion" id="agenda-titulo">Calendario</h2>
+    </div>
+    <div class="tarjeta agenda" id="agenda-lista"></div>
+  </section>
+
+  <!-- ===== El club ===== -->
+  <section class="contenedor seccion club" id="club">
+    <div class="club-texto">
+      <h2 class="titulo-seccion">Quiénes somos</h2>
+      <!-- ✏️ EDITAR AQUÍ: texto de presentación del club -->
       <p>El Club de Golf de Tecnatom nació de algo muy sencillo: las ganas de un grupo de compañeros de trabajo de seguir compartiendo buenos ratos más allá de la oficina, palo en mano y tarjeta en el bolsillo.</p>
-      <p>Más de tres décadas después, el club reúne a empleados, antiguos empleados y amigos de la casa en torno a una temporada que va de mayo a noviembre: el Campeonato de Apertura, La Liga Tecnatom —diez jornadas recorriendo los campos de la Comunidad de Madrid—, nuestra particular Ryder y el Campeonato de Clausura, además de algún evento suelto cuando el calendario lo permite.</p>
+      <p>Más de tres décadas después, el club reúne a empleados, antiguos empleados y amigos de la casa en torno a una temporada que va de mayo a octubre: el Campeonato de Apertura, La Liga Tecnatom, nuestra particular Ryder y el Campeonato de Clausura.</p>
       <p>Aquí se compite en serio —clasificación Stableford, hándicaps al día según el sistema mundial WHS— pero se compite entre amigos. Ganar está bien; el picnic del hoyo diez, mejor.</p>
+      <a class="enlace" href="historia.html">Historia del club</a>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">La temporada</div>
-      <!-- ✏️ EDITAR AQUÍ: resumen del calendario y del formato de La Liga -->
-      <p>El plato fuerte del año es La Liga Tecnatom: diez jornadas en campos distintos, con clasificación por la suma de los cuatro mejores resultados Stableford de cada jugador en dos categorías, Hándicap y Scratch. Sus clasificaciones, resultados y hándicaps en directo están en el portal de la Liga. La temporada se completa con la Apertura, la Ryder Tecnatom por equipos y la Clausura que pone el broche al año.</p>
+    <div class="cifras">
+      <!-- ✏️ EDITAR AQUÍ: cifras destacadas del club -->
+      <div class="cifra"><b>XXXIV</b><span>ediciones</span></div>
+      <div class="cifra"><b>38</b><span>socios</span></div>
+      <div class="cifra"><b>1993</b><span>fundación</span></div>
     </div>
+  </section>
+
+  <!-- ===== Galería (últimas fotos) ===== -->
+  <section class="contenedor seccion" id="galeria">
+    <div class="cabecera-seccion">
+      <h2 class="titulo-seccion">Galería</h2>
+      <a class="enlace" href="galeria.html">Ver toda la galería</a>
+    </div>
+    <div class="avance-galeria" id="avance-galeria"></div>
+  </section>
+
+</main>
+
+<!-- ===== Pie común ===== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-nombre">Club de Golf de Tecnatom</div>
+    <div>Web mantenida por la Oficina del CaddIA Master</div>
   </div>
-
-</div>
-
-<footer>
-  Club de Golf de Tecnatom · Web mantenida por la Oficina del CaddIA Master
 </footer>
+
+<script src="temporada.js"></script>
+<script>
+/* ==========================================================================
+   ✏️ EDITAR AQUÍ CADA TEMPORADA
+   Calendario de la temporada en curso. La portada decide sola cuál es la
+   próxima cita, qué está celebrado y cuándo la temporada ha terminado.
+   Fechas en formato AAAA-MM-DD.
+   ========================================================================== */
+/* La dirección del portal y el año del botón de la cabecera están en temporada.js */
+const PORTAL = (window.TEMPORADA_ACTUAL && window.TEMPORADA_ACTUAL.enlace) || 'https://clubdegolfdetecnatom.github.io/campeonato2026/';
+
+const TEMPORADA = {
+  anio: 2026,
+  edicion: 'XXXIV',
+  eventos: [
+    { id: 'apertura', nombre: 'Campeonato de Apertura', inicio: '2026-05-15', fin: '2026-05-16',
+      corto: '15–16 may', cuando: '15 y 16 de mayo', lugar: 'Golf Ulzama (Navarra)', formato: 'doble jornada',
+      resultado: 'Ganador: Tomás Recio' },
+    { id: 'cordero', nombre: 'Golf y Cordero en Lerma', inicio: '2026-06-11', fin: '2026-06-11',
+      corto: '11 jun', cuando: '11 de junio', lugar: 'Golf Lerma (Burgos)', formato: 'golf y gastronomía' },
+    { id: 'liga', nombre: 'XXXIV La Liga Tecnatom', esLiga: true, inicio: '2026-06-18', fin: '2026-09-17',
+      corto: '18 jun – 17 sep', lugar: 'Diez jornadas', formato: 'cuentan las cuatro mejores tarjetas',
+      jornadas: [
+        { id: 'J1',  fecha: '2026-06-18', campo: 'Montealvar Golf' },
+        { id: 'J2',  fecha: '2026-06-25', campo: 'Club de Golf La Dehesa' },
+        { id: 'J3',  fecha: '2026-07-02', campo: 'El Robledal Golf' },
+        { id: 'J4',  fecha: '2026-07-09', campo: 'Centro Nacional de Golf' },
+        { id: 'J5',  fecha: '2026-07-16', campo: 'Golf Santander' },
+        { id: 'J6',  fecha: '2026-07-23', campo: 'Real Club La Herrería' },
+        { id: 'J7',  fecha: '2026-07-28', campo: 'Cabanillas Casa de Campo' },
+        { id: 'J8',  fecha: '2026-09-03', campo: 'El Encín Golf' },
+        { id: 'J9',  fecha: '2026-09-10', campo: 'Montealvar Golf' },
+        { id: 'J10', fecha: '2026-09-17', campo: 'Golf Olivar de la Hinojosa' }
+      ] },
+    { id: 'ryder', nombre: 'Ryder Cup: Jubilados vs No Jubilados', inicio: '2026-09-24', fin: '2026-09-24',
+      corto: '24 sep', cuando: '24 de septiembre', lugar: 'El Encín Golf', formato: 'scramble por equipos',
+      inscripcion: 'ryder' },
+    { id: 'clausura', nombre: 'Campeonato de Clausura', inicio: '2026-10-10', fin: '2026-10-11',
+      corto: '10–11 oct', cuando: '10 y 11 de octubre', lugar: 'Salamanca', formato: 'doble jornada',
+      lugarCalendario: 'Salamanca · Villamayor y Zarapicos', inscripcion: 'clausura',
+      dias: [ { dia: 'Sábado 10',  campo: 'Golf Villamayor', par: 71 },
+              { dia: 'Domingo 11', campo: 'Golf Zarapicos',  par: 72 } ] }
+  ]
+};
+
+/* Foto de portada: vacío = la primera foto del evento más reciente con fotos.
+   Para fijar una concreta, escribir su ruta, p. ej. '2026/ryder-encin/foto.jpg' */
+const FOTO_PORTADA = '';
+
+/* Datos de respaldo: lo que se muestra mientras cargan los datos en directo,
+   o si la base de datos no responde. Los actualiza Teebot de vez en cuando. */
+const RESPALDO = {
+  handicap: [
+    { nombre: 'Jose Luis Delgado Criado', total: 158, jornadas: 5 },
+    { nombre: 'Francisco Sánchez Álvarez', total: 152, jornadas: 6 },
+    { nombre: 'Miguel Ángel Fernández Sanz', total: 150, jornadas: 10 },
+    { nombre: 'Diego Molpeceres Prieto', total: 146, jornadas: 7 },
+    { nombre: 'Miguel Ángel Guerra Román', total: 143, jornadas: 7 }
+  ],
+  scratch: [
+    { nombre: 'Fernando Ortega Pascual', total: 94, jornadas: 6 },
+    { nombre: 'Francisco Javier Guerra Saiz', total: 81, jornadas: 6 },
+    { nombre: 'Jose Luis Delgado Criado', total: 67, jornadas: 5 }
+  ],
+  inscritos: { clausura: 14 },
+  galeria: [
+    { nombre: 'Ryder Cup · El Encín', meta: '24 sep 2026 · primera Ryder en modalidad scramble',
+      foto: { bucket: 'fotos', ruta: '2026/ryder-encin/20261005_171536_1cd6q.jpg', ruta_mini: '2026/ryder-encin/20261005_171536_1cd6q_mini.jpg', pie: null } },
+    { nombre: 'J10 · Olivar de la Hinojosa', meta: '17 sep 2026 · cierre del XXXIV Campeonato',
+      foto: { bucket: 'fotos', ruta: '2026/j10-olivar/20261005_171500_1kle2.jpg', ruta_mini: '2026/j10-olivar/20261005_171500_1kle2_mini.jpg', pie: 'Participantes en el tee del 1' } },
+    { nombre: 'J9 · Montealvar', meta: '10 sep 2026 · penúltima jornada',
+      foto: { bucket: 'fotos', ruta: '2026/j09-montealvar/20261005_171512_1wpw2.jpg', ruta_mini: '2026/j09-montealvar/20261005_171512_1wpw2_mini.jpg', pie: 'Participantes en el tee del 1' } }
+  ]
+};
+
+/* ==========================================================================
+   A partir de aquí no hace falta tocar nada
+   ========================================================================== */
+const SB_REST   = 'https://peztstoiswhmlmpyhefl.supabase.co/rest/v1';
+const SB_PUBLIC = 'https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public';
+const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBlenRzdG9pc3dobWxtcHloZWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1Mzk5MTMsImV4cCI6MjA5NzExNTkxM30.D-e9iyp8tXU_mQ8Jd7fx3qL36cyW6hOdJF7hSIAnxqU';   // clave pública de solo lectura, la misma que usa galeria.html
+
+/* ---------- utilidades ---------- */
+function el(etiqueta, clase, texto) {
+  const n = document.createElement(etiqueta);
+  if (clase) n.className = clase;
+  if (texto != null) n.textContent = texto;   // siempre como texto, nunca como HTML
+  return n;
+}
+function hoyISO() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function fechaLarga(iso) {
+  const [a, m, d] = iso.split('-').map(Number);
+  const t = new Date(a, m - 1, d).toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+/* "Miguel Ángel Fernández Sanz" → "Miguel Ángel Fernández" (se quita el segundo apellido) */
+function nombreCorto(nombre) {
+  const p = String(nombre).trim().split(/\s+/);
+  return p.length >= 3 ? p.slice(0, -1).join(' ') : p.join(' ');
+}
+function plural(n, uno, varios) { return n + ' ' + (n === 1 ? uno : varios); }
+function urlFoto(f, mini) {
+  const ruta = (mini && f.ruta_mini) ? f.ruta_mini : f.ruta;
+  return SB_PUBLIC + '/' + encodeURIComponent(f.bucket) + '/' + String(ruta).split('/').map(encodeURIComponent).join('/');
+}
+function enlacePortal(pestana) { return PORTAL + (pestana ? '#' + pestana : ''); }
+
+/* ---------- estado ---------- */
+const HOY = hoyISO();
+const LIGA = TEMPORADA.eventos.find(e => e.esLiga) || null;
+const datos = {
+  handicap: RESPALDO.handicap, scratch: RESPALDO.scratch,
+  inscritos: Object.assign({}, RESPALDO.inscritos), galeria: RESPALDO.galeria
+};
+
+/* Lista plana de citas: cada evento suelto y cada jornada de Liga */
+function citas() {
+  const lista = [];
+  TEMPORADA.eventos.forEach(ev => {
+    if (ev.esLiga) {
+      (ev.jornadas || []).forEach((j, i) => lista.push({
+        clave: j.id, inicio: j.fecha, fin: j.fecha,
+        titulo: 'La Liga · Jornada ' + (i + 1),
+        detalle: fechaLarga(j.fecha) + ' · ' + j.campo,
+        tabla: 'inscripciones', campo: 'jornada', valor: j.id
+      }));
+    } else {
+      lista.push({
+        clave: ev.id, inicio: ev.inicio, fin: ev.fin, titulo: ev.nombre,
+        detalle: [ev.cuando, ev.lugar, ev.formato].filter(Boolean).join(' · '),
+        dias: ev.dias,
+        tabla: ev.inscripcion ? 'inscripciones_eventos' : null, campo: 'evento', valor: ev.inscripcion
+      });
+    }
+  });
+  return lista.sort((a, b) => a.inicio.localeCompare(b.inicio));
+}
+const PROXIMA = citas().find(c => c.fin >= HOY) || null;
+const ligaTerminada = !!LIGA && LIGA.fin < HOY;
+
+/* ---------- bloque verde ---------- */
+function pintarCita() {
+  const caja = document.getElementById('cita');
+  caja.replaceChildren();
+
+  if (PROXIMA) {
+    const enJuego = PROXIMA.inicio <= HOY;
+    caja.append(el('div', 'cita-etiqueta', (enJuego ? 'En juego' : 'Próxima cita') + ' · temporada ' + TEMPORADA.anio));
+    caja.append(el('h1', null, PROXIMA.titulo));
+    caja.append(el('div', 'cita-detalle', PROXIMA.detalle));
+    if (PROXIMA.dias && PROXIMA.dias.length) {
+      const dias = el('div', 'cita-dias');
+      PROXIMA.dias.forEach(d => {
+        const c = el('div', 'cita-dia');
+        c.append(el('small', null, d.dia), el('strong', null, d.campo));
+        if (d.par) c.append(el('small', null, 'Par ' + d.par));
+        dias.append(c);
+      });
+      caja.append(dias);
+    }
+    const pie = el('div', 'cita-pie');
+    const n = datos.inscritos[PROXIMA.clave];
+    const cuenta = el('div');
+    if (typeof n === 'number') {
+      cuenta.append(el('strong', null, String(n)), document.createTextNode(n === 1 ? ' inscrito' : ' inscritos'));
+    }
+    const acc = el('div', 'cita-acciones');
+    const detalles = el('a', 'enlace', 'Ver detalles'); detalles.href = enlacePortal('calendario');
+    /* con la cita ya en juego no tiene sentido apuntarse: el botón lleva a los resultados */
+    const principal = el('a', 'boton boton-oro', enJuego ? 'Ver resultados' : 'Apuntarme');
+    principal.href = enlacePortal(enJuego ? 'resultados' : 'inscripcion');
+    acc.append(detalles, principal);
+    pie.append(cuenta, acc);
+    caja.append(pie);
+  } else {
+    /* temporada terminada: resumen con los campeones */
+    caja.append(el('div', 'cita-etiqueta', 'Temporada ' + TEMPORADA.anio + ' completada'));
+    caja.append(el('h1', null, 'Así terminó la temporada ' + TEMPORADA.anio));
+    caja.append(el('div', 'cita-detalle', TEMPORADA.edicion + ' edición · ' + plural(TEMPORADA.eventos.length, 'cita disputada', 'citas disputadas')));
+    const dias = el('div', 'cita-dias');
+    [['Liga · Campeón Hándicap', datos.handicap[0]], ['Liga · Campeón Scratch', datos.scratch[0]]].forEach(([rotulo, j]) => {
+      if (!j) return;
+      const c = el('div', 'cita-dia');
+      c.append(el('small', null, rotulo), el('strong', null, nombreCorto(j.nombre)), el('small', null, j.total + ' puntos'));
+      dias.append(c);
+    });
+    if (dias.children.length) caja.append(dias);
+    const pie = el('div', 'cita-pie');
+    const acc = el('div', 'cita-acciones');
+    const ver = el('a', 'boton boton-oro', 'Ver resultados'); ver.href = enlacePortal('resultados');
+    acc.append(ver);
+    pie.append(el('div'), acc);
+    caja.append(pie);
+  }
+}
+
+/* ---------- clasificación ---------- */
+function clasificar(resultados, campo) {
+  const por = new Map();
+  resultados.forEach(r => {
+    const v = Number(r[campo]);
+    if (!/^J\d+$/.test(String(r.jornada)) || r[campo] == null || !Number.isFinite(v) || !r.jugador) return;
+    if (!por.has(r.jugador)) por.set(r.jugador, []);
+    por.get(r.jugador).push(v);
+  });
+  return [...por].map(([nombre, v]) => {
+    const orden = [...v].sort((a, b) => b - a);
+    return { nombre, jornadas: v.length, total: orden.slice(0, 4).reduce((s, x) => s + x, 0), mejor: orden[0] };
+  }).sort((a, b) => b.total - a.total || b.mejor - a.mejor || a.nombre.localeCompare(b.nombre, 'es'));
+}
+
+function pintarClasificacion() {
+  document.getElementById('liga-antetitulo').textContent = LIGA ? LIGA.nombre : 'La Liga Tecnatom';
+  document.getElementById('liga-titulo').textContent = ligaTerminada ? 'Clasificación final' : 'Clasificación provisional';
+
+  const h = datos.handicap, s = datos.scratch;
+  document.getElementById('liga').classList.toggle('oculto', h.length === 0);
+
+  /* Hándicap: podio + 4.º y 5.º */
+  const cajaH = document.getElementById('clas-handicap');
+  cajaH.replaceChildren(el('div', 'clas-rotulo', 'Categoría Hándicap · Stableford'));
+  const lista = el('ol', 'lista-puestos');
+  let desde = 0;
+  if (h.length >= 3) {
+    const podio = el('div', 'podio');
+    [[1, '2.º puesto'], [0, ligaTerminada ? 'Campeón' : 'Líder'], [2, '3.er puesto']].forEach(([i, rotulo]) => {
+      const p = el('div', 'podio-puesto podio-' + (i + 1));
+      const quien = el('div');
+      quien.append(el('span', 'podio-nombre', nombreCorto(h[i].nombre)), el('span', 'podio-jornadas', plural(h[i].jornadas, 'jornada', 'jornadas')));
+      const caja = el('div', 'podio-caja');
+      caja.append(el('b', null, String(h[i].total)), el('span', null, rotulo));
+      p.append(quien, caja);
+      podio.append(p);
+    });
+    cajaH.append(podio);
+    desde = 3;
+  }
+  h.slice(desde, 5).forEach((j, k) => {
+    const li = el('li');
+    const izq = el('span');
+    izq.append(el('strong', null, String(desde + k + 1)), document.createTextNode(' · ' + nombreCorto(j.nombre) + ' '), el('small', null, '· ' + plural(j.jornadas, 'jornada', 'jornadas')));
+    li.append(izq, el('b', null, String(j.total)));
+    lista.append(li);
+  });
+  if (lista.children.length) { lista.setAttribute('start', String(desde + 1)); cajaH.append(lista); }
+
+  /* Scratch: primero destacado + 2.º y 3.º */
+  const cajaS = document.getElementById('clas-scratch');
+  cajaS.replaceChildren(el('div', 'clas-rotulo', 'Categoría Scratch'));
+  cajaS.classList.toggle('oculto', s.length === 0);
+  if (s.length) {
+    const primero = el('div');
+    primero.append(el('span', 'scratch-puntos', String(s[0].total)), el('span', 'scratch-nombre', nombreCorto(s[0].nombre)), el('span', 'scratch-rotulo', ligaTerminada ? 'Campeón scratch' : 'Líder scratch'));
+    cajaS.append(primero);
+    /* el subcampeón, también destacado */
+    if (s[1]) {
+      const segundo = el('div', 'scratch-segundo');
+      const quien = el('div');
+      quien.append(el('span', 'scratch-nombre', nombreCorto(s[1].nombre)), el('span', 'scratch-rotulo', ligaTerminada ? 'Subcampeón scratch' : 'Segundo scratch'));
+      segundo.append(quien, el('span', 'scratch-puntos', String(s[1].total)));
+      cajaS.append(segundo);
+    }
+    const resto = el('ol', 'lista-puestos');
+    resto.setAttribute('start', '3');
+    s.slice(2, 3).forEach((j, k) => {
+      const li = el('li');
+      const izq = el('span');
+      izq.append(el('strong', null, String(k + 3)), document.createTextNode(' · ' + nombreCorto(j.nombre)));
+      li.append(izq, el('strong', null, String(j.total)));
+      resto.append(li);
+    });
+    if (resto.children.length) cajaS.append(resto);
+    cajaS.append(el('div', 'nota', 'Cuentan las cuatro mejores tarjetas de cada jugador.'));
+  }
+}
+
+/* ---------- calendario ---------- */
+const SVG_NS = 'http://www.w3.org/2000/svg';
+function iconoHecho() {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
+  const p = document.createElementNS(SVG_NS, 'path');
+  p.setAttribute('d', 'M5 12.5l4.5 4.5L19 7.5');
+  svg.append(p);
+  return svg;
+}
+function pintarCalendario() {
+  document.getElementById('agenda-titulo').textContent = 'Calendario ' + TEMPORADA.anio;
+  const caja = document.getElementById('agenda-lista');
+  caja.replaceChildren();
+  const siguiente = TEMPORADA.eventos.filter(e => e.fin >= HOY).sort((a, b) => a.inicio.localeCompare(b.inicio))[0] || null;
+  TEMPORADA.eventos.forEach(ev => {
+    const hecho = ev.fin < HOY, proximo = ev === siguiente;
+    const item = el('div', 'agenda-item' + (hecho ? '' : proximo ? ' agenda-proximo' : ' agenda-pendiente'));
+    const marca = el('div', 'agenda-marca');
+    const punto = el('span', 'agenda-punto');
+    if (hecho) punto.append(iconoHecho());
+    marca.append(punto);
+    if (proximo) marca.append(el('span', 'agenda-aviso', ev.inicio <= HOY ? 'En juego' : 'Próxima cita'));
+    else marca.append(el('span', 'agenda-raya'));
+
+    let texto = ev.lugarCalendario || ev.lugar || '';
+    let cola = ev.formato;
+    if (hecho && ev.resultado) cola = ev.resultado;
+    if (hecho && ev.esLiga && datos.handicap[0]) cola = 'Campeón: ' + nombreCorto(datos.handicap[0].nombre);
+    if (cola) texto += (texto ? ' · ' : '') + cola;
+
+    const cuerpo = el('div');
+    cuerpo.append(el('span', 'agenda-fecha', ev.corto), el('span', 'agenda-nombre', ev.nombre), el('span', 'agenda-texto', texto));
+    punto.setAttribute('role', 'img');
+    punto.setAttribute('aria-label', hecho ? 'Celebrado' : proximo ? 'Próxima cita' : 'Pendiente');
+    item.append(marca, cuerpo);
+    caja.append(item);
+  });
+}
+
+/* ---------- fotos ---------- */
+function pintarFotos() {
+  /* portada */
+  const marco = document.getElementById('foto-portada');
+  const anterior = marco.querySelector('img');
+  if (anterior) anterior.remove();
+  const fija = FOTO_PORTADA ? { bucket: 'fotos', ruta: FOTO_PORTADA, ruta_mini: null, pie: null } : null;
+  const primera = fija || (datos.galeria[0] && datos.galeria[0].foto);
+  if (primera) {
+    const img = el('img');
+    img.alt = primera.pie || (datos.galeria[0] ? datos.galeria[0].nombre : 'Foto del club');
+    img.src = urlFoto(primera, true);
+    if (primera.ruta_mini) { img.srcset = urlFoto(primera, true) + ' 640w, ' + urlFoto(primera, false) + ' 1600w'; img.sizes = '(max-width: 760px) 100vw, 400px'; }
+    img.onerror = () => img.remove();   // si la foto no carga, queda el fondo liso
+    marco.prepend(img);
+  }
+
+  /* avance de galería: los tres eventos más recientes con fotos */
+  const caja = document.getElementById('avance-galeria');
+  caja.replaceChildren();
+  datos.galeria.slice(0, 3).forEach(ev => {
+    if (!ev.foto) return;
+    const fig = el('figure');
+    const a = el('a'); a.href = 'galeria.html';
+    const marcoFoto = el('span', 'avance-foto');
+    const img = el('img');
+    img.loading = 'lazy'; img.alt = ev.foto.pie || ev.nombre; img.src = urlFoto(ev.foto, true);
+    img.onerror = () => img.remove();
+    marcoFoto.append(img);
+    const pie = el('figcaption');
+    pie.append(el('b', null, ev.nombre), document.createTextNode(ev.meta || ''));
+    a.append(marcoFoto, pie);
+    fig.append(a);
+    caja.append(fig);
+  });
+  document.getElementById('galeria').classList.toggle('oculto', caja.children.length === 0);
+}
+
+/* ---------- enlaces al portal ---------- */
+function ponerEnlaces() {
+  document.querySelectorAll('[data-portal]').forEach(a => { a.href = enlacePortal(a.dataset.portal); });
+}
+
+function pintarTodo() { pintarCita(); pintarClasificacion(); pintarCalendario(); pintarFotos(); }
+
+/* ---------- datos en directo (solo lectura) ---------- */
+async function leer(tabla, params) {
+  const corte = new AbortController();
+  const reloj = setTimeout(() => corte.abort(), 8000);
+  try {
+    const r = await fetch(SB_REST + '/' + tabla + '?' + params, { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY }, signal: corte.signal });
+    if (!r.ok) throw new Error(tabla + ' ' + r.status);
+    const j = await r.json();
+    if (!Array.isArray(j)) throw new Error(tabla + ': respuesta inesperada');
+    return j;
+  } finally { clearTimeout(reloj); }
+}
+
+async function cargarEnDirecto() {
+  const tareas = [
+    leer('resultados', 'select=jornada,jugador,stableford,scratch').then(res => {
+      const h = clasificar(res, 'stableford'), s = clasificar(res, 'scratch');
+      if (h.length) { datos.handicap = h; datos.scratch = s; }
+    }),
+    leer('eventos_fotos', 'select=id,nombre,meta,fecha&anio=eq.' + TEMPORADA.anio + '&order=fecha.desc.nullslast').then(async evs => {
+      const fotos = await leer('fotos', 'select=evento_id,bucket,ruta,ruta_mini,pie,orden&order=orden.asc,id.asc');
+      const g = evs.map(e => ({ nombre: e.nombre, meta: e.meta, foto: fotos.find(f => f.evento_id === e.id && f.bucket && f.ruta) || null })).filter(e => e.foto);
+      if (g.length) datos.galeria = g;
+    })
+  ];
+  if (PROXIMA && PROXIMA.tabla && PROXIMA.valor) {
+    tareas.push(leer(PROXIMA.tabla, 'select=jugador&' + PROXIMA.campo + '=eq.' + encodeURIComponent(PROXIMA.valor)).then(filas => {
+      datos.inscritos[PROXIMA.clave] = new Set(filas.map(f => f.jugador)).size;
+    }));
+  }
+  const hechas = await Promise.allSettled(tareas);
+  hechas.forEach(t => { if (t.status === 'rejected') console.warn('[Portada] dato en directo no disponible:', t.reason && t.reason.message); });
+  pintarTodo();
+}
+
+ponerEnlaces();
+pintarTodo();          // primero, con los datos de respaldo
+cargarEnDirecto();     // después, con los datos en directo
+</script>
 
 </body>
 </html>

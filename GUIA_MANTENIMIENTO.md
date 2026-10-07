@@ -5,16 +5,30 @@ Repositorio: `clubdegolfdetecnatom.github.io` (cuenta GitHub del club)
 
 **Importante:** esta web es independiente del portal del campeonato
 (repositorio `campeonato2026`). Nada de lo que se haga aquí afecta al portal.
+La portada lee datos del portal (inscritos, clasificación y fotos), pero solo
+en lectura.
 
-## Qué fichero es cada página
+## Qué fichero es cada cosa
 
-| Fichero          | Página                          |
-|------------------|---------------------------------|
-| index.html       | Portada y "Quiénes somos"       |
-| historia.html    | Historia, hitos y palmarés      |
-| temporadas.html  | Índice de temporadas (por año)  |
-| temporada2026.html | Eventos de la temporada 2026  |
-| galeria.html     | Galería de fotos                |
+| Fichero              | Qué es                                                        |
+|----------------------|---------------------------------------------------------------|
+| index.html           | Portada: temporada actual, clasificación, calendario, club    |
+| historia.html        | Historia, hitos y palmarés                                    |
+| temporadas.html      | Índice de temporadas (por año)                                |
+| temporadaAAAA.html   | Eventos y calendario de cada temporada                        |
+| galeria.html         | Galería de fotos (se alimenta sola desde el portal)           |
+| **estilos.css**      | Aspecto de TODA la web: colores, letra, cabecera, tarjetas    |
+| **temporada.js**     | Año y enlace del botón verde "Temporada …" de la cabecera     |
+| escudo.jpg           | Escudo del club                                               |
+
+Desde octubre de 2026 el diseño ya no está repetido dentro de cada página:
+está en `estilos.css`. Las páginas solo contienen su texto.
+
+## Cómo cambiar un color o la letra en toda la web
+
+En `estilos.css`, al principio, está el bloque "Colores y letra". Cambiando un
+valor ahí cambia en todas las páginas a la vez. Por ejemplo, `--verde` es el
+color principal y `--oro` el de los botones y etiquetas destacadas.
 
 ## Cómo editar un texto (sin programas, desde el navegador)
 
@@ -26,32 +40,54 @@ Repositorio: `clubdegolfdetecnatom.github.io` (cuenta GitHub del club)
 5. Cambiar solo el texto. No borrar los símbolos `<` y `>` ni lo que hay dentro de ellos.
 6. Pulsar el botón verde "Commit changes". En 1–2 minutos la web se actualiza sola.
 
-## Cómo añadir un campeón al palmarés
+## La portada (index.html)
 
-En `historia.html`, localizar la tabla del palmarés y copiar una fila completa,
-desde `<tr>` hasta `</tr>`, pegarla debajo y cambiar los datos:
+La portada se actualiza sola:
 
-    <tr><td>XXXIV</td><td>2026</td><td>Nombre Apellidos</td><td>Nombre Apellidos</td></tr>
+- **Próxima cita.** La elige ella misma a partir del calendario escrito en el
+  bloque `TEMPORADA` (casi al final del fichero, marcado con
+  `✏️ EDITAR AQUÍ CADA TEMPORADA`). Cuando una cita pasa, muestra la siguiente.
+  Cuando ya no queda ninguna, el bloque verde pasa a ser el resumen de la
+  temporada con los campeones de Liga.
+- **Inscritos, clasificación de la Liga y fotos.** Se leen en directo del
+  portal. Si la base de datos no responde, se muestran los valores del bloque
+  `RESPALDO`, que conviene poner al día de vez en cuando.
+- **Foto de portada.** Por defecto, la primera foto del evento más reciente.
+  Para fijar una concreta, escribir su ruta en `FOTO_PORTADA`.
 
-## Cómo añadir una temporada nueva
+Para cambiar una fecha, un campo o añadir una cita, editar la lista `eventos`
+del bloque `TEMPORADA` (fechas en formato AAAA-MM-DD).
 
-1. Copiar el fichero `temporada2026.html`, subirlo con el nombre del nuevo año
-   (p. ej. `temporada2027.html`) y editar dentro sus eventos.
-2. En `temporadas.html`, copiar el bloque que empieza en
+## Cómo abrir una temporada nueva
+
+1. En `temporada.js`, cambiar `anio` y `enlace`. Con eso el botón verde de la
+   cabecera cambia en todas las páginas.
+2. En `index.html`, sustituir la lista `eventos` del bloque `TEMPORADA` por el
+   calendario del nuevo año y cambiar `anio` y `edicion`.
+3. Crear la página de la temporada: copiar `temporada2026.html`, subirla con el
+   nombre del nuevo año (p. ej. `temporada2027.html`) y editar sus eventos.
+4. En `temporadas.html`, copiar el bloque que empieza en
    `<a class="temporada actual"` y termina en `</a>`, pegarlo encima del anterior
    y cambiar el año y el enlace al nuevo fichero. A la temporada anterior,
    quitarle la palabra `actual` de su `class` y cambiar su badge a `badge-archivo`.
+
+## Cómo añadir un año al palmarés
+
+En `historia.html`, copiar una tarjeta `<div class="card">` completa, cambiar el
+título y las filas de eventos. Cada fila es:
+
+    <tr><td class="ev">EVENTO</td><td>SEDE</td><td>GANADOR</td></tr>
 
 ## Cómo añadir o actualizar un evento de una temporada
 
 En el fichero de la temporada (p. ej. `temporada2026.html`), copiar un bloque
 que empieza en `<div class="evento"` y termina en su `</div>` de cierre,
 y cambiar nombre, detalle y badge. Badges: `badge-vivo` (En juego),
-`badge-prox` (Próximamente), `badge-doc` (Por documentar).
+`badge-prox` (Próximamente), `badge-doc` (Celebrado / Por documentar).
 Si el evento tiene página propia o portal, usar `<a class="evento" href="...">`
 en lugar de `<div>`.
 
-## Cómo cambiar las fechas del calendario anual
+## Cómo cambiar las fechas del calendario anual de una temporada
 
 En el fichero de la temporada (p. ej. `temporada2026.html`), al final del todo,
 hay una lista llamada `EVENTOS` con una línea por cada día de evento:
@@ -65,6 +101,15 @@ hay una lista llamada `EVENTOS` con una línea por cada día de evento:
 
 El calendario de 12 meses se redibuja solo con esos datos.
 
+## Cómo crear una página nueva con el mismo aspecto
+
+Copiar una página existente del mismo tipo. Lo que le da el aspecto común es:
+
+- en `<head>`, las líneas que enlazan las tipografías y `estilos.css`;
+- el bloque `<header class="cabecera">` … `</header>`;
+- el bloque `<footer class="pie">` … `</footer>`;
+- la línea `<script src="temporada.js"></script>` antes de `</body>`.
+
 ## Reglas de oro
 
 - Ante la duda, no borrar nada: preguntar antes.
@@ -72,4 +117,3 @@ El calendario de 12 meses se redibuja solo con esos datos.
   deshacer desde la pestaña "History" del fichero.
 - Para cambios de diseño o secciones nuevas: pedírselo a Teebot
   (Oficina del CaddIA Master) en Claude.
-

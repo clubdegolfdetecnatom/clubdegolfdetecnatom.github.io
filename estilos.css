@@ -1,0 +1,452 @@
+/* ==========================================================================
+   Club de Golf de Tecnatom — hoja de estilos común
+   Todas las páginas de la web enlazan este archivo. Para cambiar un color o
+   una tipografía en toda la web, basta con tocar el bloque "Colores y letra".
+   ========================================================================== */
+
+/* ---------- Colores y letra (EDITAR AQUÍ para cambiar el aspecto) ---------- */
+:root {
+  --verde: #173A2C;          /* color principal: botones, bloque destacado, cifras */
+  --verde-hover: #0E271D;
+  --fondo: #F3F5F1;          /* fondo de la página */
+  --papel: #FFFFFF;          /* fondo de las tarjetas */
+  --tinta: #1B241F;          /* títulos y texto principal */
+  --texto: #36423B;          /* párrafos */
+  --gris: #56625B;           /* texto secundario */
+  --linea: #DDE3DC;          /* líneas finas */
+  --tinte: #E6ECE6;          /* fondos suaves: iconos, pestaña activa, podio */
+  --oro: #D8BE7A;            /* acento: botón principal y etiquetas destacadas */
+  --oro-tinta: #14261D;      /* texto sobre el dorado */
+  --oro-oscuro: #6B5A1E;     /* dorado para texto sobre fondo claro */
+  --sobre-verde: #D5DED8;    /* texto secundario sobre el verde */
+  --letra-titulos: 'Bricolage Grotesque', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --letra-texto: 'DM Sans', 'Segoe UI', 'Helvetica Neue', Helvetica, sans-serif;
+  --ancho: 1184px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--letra-texto);
+  font-size: 16px;
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1 0 auto; }
+img { max-width: 100%; display: block; }
+a { color: var(--verde); text-underline-offset: 4px; }
+a:hover { color: var(--verde-hover); }
+h1, h2, h3 { font-family: var(--letra-titulos); color: var(--tinta); margin: 0; letter-spacing: -0.02em; }
+p { margin: 0 0 14px; color: var(--texto); }
+p:last-child { margin-bottom: 0; }
+:focus-visible { outline: 3px solid var(--oro-oscuro); outline-offset: 2px; }
+
+.contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+.seccion { padding-top: 72px; }
+.oculto { display: none !important; }
+
+/* ---------- Cabecera común ---------- */
+.cabecera { background: var(--papel); border-bottom: 1px solid var(--linea); }
+.cabecera .contenedor {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 32px; padding-top: 16px; padding-bottom: 16px;
+}
+.marca { display: flex; align-items: center; gap: 12px; color: var(--tinta); text-decoration: none; }
+.marca:hover { color: var(--tinta); }
+.marca img { width: 52px; height: 52px; object-fit: contain; }
+.marca-nombre { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; }
+.marca-lema { display: block; font-size: 13px; color: var(--gris); }
+
+.menu { display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 15px; margin-left: auto; }
+.menu a { color: var(--tinta); text-decoration: none; padding: 11px 18px; border-radius: 999px; white-space: nowrap; }
+.menu a:hover { background: var(--tinte); color: var(--tinta); }
+.menu a.activo { background: var(--tinte); font-weight: 700; }
+/* botón de acceso a la temporada en curso, siempre visible en la cabecera */
+.boton-temporada { background: var(--verde); color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none; padding: 11px 20px; border-radius: 999px; white-space: nowrap; }
+.boton-temporada:hover { background: var(--verde-hover); color: #FFFFFF; }
+
+/* cabecera compacta: nombre y botón arriba, secciones en una fila debajo */
+@media (max-width: 920px) {
+  .cabecera .contenedor { padding-bottom: 0; row-gap: 6px; }
+  .boton-temporada { order: 2; margin-left: auto; }
+  .menu { order: 3; flex-basis: 100%; margin-left: -10px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
+  .menu::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- Piezas comunes ---------- */
+.tarjeta { background: var(--papel); border-radius: 28px; padding: 28px; }
+.antetitulo { font-size: 14px; font-weight: 700; color: var(--oro-oscuro); margin-bottom: 4px; }
+.titulo-seccion { font-size: 40px; font-weight: 700; line-height: 1.1; }
+.cabecera-seccion { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 24px; }
+.enlace { font-weight: 500; display: inline-block; padding: 12px 0; }
+.nota { font-size: 14px; color: var(--gris); }
+
+.boton {
+  display: inline-block; text-decoration: none; font-weight: 700; border-radius: 999px;
+  padding: 14px 28px; background: var(--verde); color: #FFFFFF;
+}
+.boton:hover { background: var(--verde-hover); color: #FFFFFF; }
+.boton-oro { background: var(--oro); color: var(--oro-tinta); }
+.boton-oro:hover { background: #E4CF96; color: var(--oro-tinta); }
+
+/* ---------- Pie común ---------- */
+.pie { margin-top: 72px; border-top: 1px solid var(--linea); }
+.pie .contenedor {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 32px; padding-top: 28px; padding-bottom: 28px; font-size: 14px; color: var(--gris);
+}
+.pie-nombre { font-family: var(--letra-titulos); font-weight: 700; font-size: 18px; color: var(--tinta); }
+
+/* ==========================================================================
+   Portada
+   ========================================================================== */
+.inicio { padding-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+.portada { display: flex; flex-wrap: wrap; gap: 20px; }
+
+/* Bloque verde: próxima cita / temporada */
+.cita {
+  flex: 2 1 520px; min-width: 0; background: var(--verde); color: #FFFFFF;
+  border-radius: 28px; padding: 40px; display: flex; flex-direction: column; gap: 20px;
+}
+.cita-etiqueta { align-self: flex-start; background: var(--oro); color: var(--oro-tinta); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; }
+.cita h1 { color: #FFFFFF; font-size: clamp(34px, 4.6vw, 58px); font-weight: 700; line-height: 1.04; text-wrap: balance; }
+.cita-detalle { font-size: 18px; color: var(--sobre-verde); }
+.cita-dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px; }
+.cita-dia { background: rgba(255,255,255,0.12); border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; }
+.cita-dia small { font-size: 14px; color: var(--sobre-verde); }
+.cita-dia strong { font-family: var(--letra-titulos); font-weight: 600; font-size: 21px; line-height: 1.25; }
+.cita-pie { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.cita-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.cita-acciones .enlace { color: #FFFFFF; padding: 13px 16px; }
+.cita-acciones .enlace:hover { color: var(--oro); }
+
+/* Foto de portada con el lema */
+.foto-portada {
+  flex: 1 1 320px; min-width: 0; min-height: 380px; margin: 0; position: relative; overflow: hidden;
+  border-radius: 28px; background: #DCE3DB; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px;
+}
+.foto-portada img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.foto-portada figcaption { position: relative; background: var(--papel); border-radius: 18px; padding: 18px 20px; }
+.lema-titulo { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--tinta); }
+.lema-texto { display: block; color: var(--gris); }
+
+/* Accesos a la temporada */
+.accesos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 16px; }
+.acceso { background: var(--papel); border-radius: 20px; padding: 20px; text-decoration: none; color: var(--tinta); display: flex; flex-direction: column; gap: 12px; transition: transform .15s ease, box-shadow .15s ease; }
+.acceso:hover { color: var(--tinta); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(23,58,44,0.10); }
+.acceso-icono { width: 46px; height: 46px; border-radius: 50%; background: var(--tinte); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.acceso-icono svg { width: 24px; height: 24px; fill: none; stroke: var(--verde); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.acceso-nombre { display: block; font-family: var(--letra-titulos); font-weight: 600; font-size: 20px; }
+.acceso-texto { display: block; font-size: 14px; color: var(--gris); line-height: 1.4; }
+
+/* Clasificación de la Liga */
+.clasificacion { display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; }
+.clasificacion > .tarjeta { display: flex; flex-direction: column; gap: 20px; }
+.clas-handicap { flex: 2 1 520px; min-width: 0; }
+.clas-scratch { flex: 1 1 300px; min-width: 0; gap: 18px; }
+.clas-rotulo { font-size: 14px; font-weight: 700; color: var(--gris); }
+.podio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: end; }
+.podio-puesto { display: flex; flex-direction: column; gap: 10px; text-align: center; }
+.podio-nombre { display: block; font-weight: 700; line-height: 1.3; }
+.podio-jornadas { display: block; font-size: 14px; color: var(--gris); }
+.podio-caja { border-radius: 18px; background: var(--tinte); display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100px; }
+.podio-caja b { font-family: var(--letra-titulos); font-weight: 700; font-size: 34px; line-height: 1; }
+.podio-caja span { font-size: 14px; color: var(--gris); }
+.podio-1 .podio-caja { height: 140px; background: var(--verde); color: #FFFFFF; }
+.podio-1 .podio-caja b { font-size: 46px; }
+.podio-1 .podio-caja span { color: var(--oro); font-weight: 700; }
+.podio-3 .podio-caja { height: 76px; }
+.podio-3 .podio-caja b { font-size: 30px; }
+.lista-puestos { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linea); }
+.lista-puestos li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linea); }
+.lista-puestos li:last-child { border-bottom: 0; }
+.lista-puestos small { color: var(--gris); font-size: 14px; }
+.lista-puestos b { font-family: var(--letra-titulos); font-weight: 700; font-size: 20px; }
+.scratch-puntos { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: 64px; line-height: 1; color: var(--verde); }
+.scratch-nombre { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: 26px; line-height: 1.2; }
+.scratch-rotulo { display: block; color: var(--gris); }
+.scratch-segundo { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; border-top: 1px solid var(--linea); padding-top: 18px; }
+.scratch-segundo .scratch-nombre { font-size: 21px; }
+.scratch-segundo .scratch-puntos { font-size: 38px; color: var(--tinta); }
+.clas-scratch .nota { margin-top: auto; }
+
+/* Calendario */
+.agenda { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 28px 20px; padding: 32px; }
+.agenda-item { display: flex; flex-direction: column; gap: 12px; }
+.agenda-marca { display: flex; align-items: center; gap: 10px; }
+.agenda-punto { width: 30px; height: 30px; border-radius: 50%; background: var(--verde); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.agenda-punto svg { width: 16px; height: 16px; fill: none; stroke: #FFFFFF; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.agenda-raya { flex-grow: 1; height: 2px; background: #CDD6CE; }
+.agenda-proximo .agenda-punto { background: transparent; border: 3px solid #B08D3C; }
+.agenda-pendiente .agenda-punto { background: transparent; border: 3px solid #CDD6CE; }
+.agenda-aviso { background: var(--oro); color: var(--oro-tinta); border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.agenda-fecha { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: 20px; }
+.agenda-nombre { display: block; font-weight: 700; line-height: 1.3; margin-top: 3px; }
+.agenda-texto { display: block; font-size: 14px; color: var(--gris); line-height: 1.4; margin-top: 3px; }
+
+/* El club */
+.club { display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center; }
+.club-texto { flex: 1 1 420px; min-width: 0; }
+.club-texto .titulo-seccion { margin-bottom: 14px; }
+.cifras { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.cifra { background: var(--papel); border-radius: 20px; padding: 22px 16px; }
+.cifra b { display: block; font-family: var(--letra-titulos); font-weight: 700; font-size: clamp(26px, 3.4vw, 44px); line-height: 1; color: var(--verde); }
+.cifra span { display: block; font-size: 14px; color: var(--gris); margin-top: 4px; }
+
+/* Galería (avance) */
+.avance-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px; }
+.avance-galeria figure { margin: 0; }
+.avance-galeria a { display: block; text-decoration: none; color: var(--texto); }
+.avance-foto { display: block; height: 230px; border-radius: 20px; overflow: hidden; background: #DCE3DB; }
+.avance-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.avance-galeria a:hover .avance-foto img { transform: scale(1.03); }
+.avance-galeria figcaption { font-size: 15px; margin-top: 10px; }
+.avance-galeria figcaption b { display: block; color: var(--tinta); }
+
+/* ==========================================================================
+   Móvil
+   ========================================================================== */
+@media (max-width: 760px) {
+  body { font-size: 15px; }
+  .contenedor { padding-left: 16px; padding-right: 16px; }
+  .seccion { padding-top: 44px; }
+  .cabecera .contenedor { padding-top: 12px; column-gap: 8px; }
+  .marca img { width: 44px; height: 44px; }
+  .marca-nombre { font-size: 17px; }
+  .marca-lema { font-size: 12px; }
+  .menu { gap: 2px; margin-left: -8px; }
+  .menu a { padding: 11px 12px; }
+  .boton-temporada { padding: 10px 16px; }
+  .titulo-seccion { font-size: 28px; }
+  .cabecera-seccion { margin-bottom: 14px; }
+  .tarjeta { border-radius: 24px; padding: 18px; }
+  .inicio { padding-top: 16px; gap: 12px; }
+  .portada { gap: 12px; }
+  .cita { flex-basis: 100%; border-radius: 24px; padding: 22px; gap: 14px; }
+  .cita h1 { font-size: 34px; }
+  .cita-detalle { font-size: 15px; }
+  .cita-dias { grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 10px; }
+  .cita-dia { border-radius: 16px; padding: 12px 14px; }
+  .cita-dia small { font-size: 13px; }
+  .cita-dia strong { font-size: 17px; }
+  .cita-acciones .enlace { padding: 13px 8px; }
+  .boton { padding: 13px 24px; }
+  .foto-portada { flex-basis: 100%; min-height: 220px; border-radius: 24px; padding: 12px; order: 3; }
+  .foto-portada figcaption { border-radius: 14px; padding: 10px 14px; }
+  .lema-titulo { font-size: 17px; }
+  .lema-texto { font-size: 13px; }
+  .accesos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .acceso { flex-direction: row; align-items: center; gap: 10px; border-radius: 18px; padding: 14px; }
+  .acceso:last-child:nth-child(odd) { grid-column: span 2; }
+  .acceso-icono { width: 40px; height: 40px; }
+  .acceso-icono svg { width: 22px; height: 22px; }
+  .acceso-nombre { font-size: 17px; }
+  .acceso-texto { display: none; }
+  .clasificacion { gap: 12px; }
+  .clasificacion > .tarjeta { gap: 14px; }
+  .podio { gap: 10px; }
+  .podio-nombre { font-size: 14px; line-height: 1.25; }
+  .podio-jornadas { font-size: 13px; }
+  .podio-caja { height: 84px; border-radius: 16px; }
+  .podio-caja b { font-size: 28px; }
+  .podio-caja span { font-size: 13px; }
+  .podio-1 .podio-caja { height: 112px; }
+  .podio-1 .podio-caja b { font-size: 36px; }
+  .podio-3 .podio-caja { height: 64px; }
+  .podio-3 .podio-caja b { font-size: 24px; }
+  .lista-puestos li { padding: 12px 0; }
+  .lista-puestos b { font-size: 18px; }
+  .scratch-puntos { font-size: 48px; }
+  .scratch-nombre { font-size: 22px; }
+  .scratch-segundo { padding-top: 14px; }
+  .scratch-segundo .scratch-nombre { font-size: 18px; }
+  .scratch-segundo .scratch-puntos { font-size: 30px; }
+  .agenda { padding: 20px; gap: 20px; grid-template-columns: 1fr; }
+  .agenda-item { flex-direction: row; gap: 14px; align-items: flex-start; }
+  .agenda-marca { flex-direction: column; align-self: stretch; gap: 6px; }
+  .agenda-raya { width: 2px; height: auto; min-height: 12px; }
+  .agenda-aviso { display: none; }
+  .agenda-proximo .agenda-fecha::after { content: " · próxima cita"; font-family: var(--letra-texto); font-size: 13px; font-weight: 700; color: var(--oro-oscuro); letter-spacing: 0; }
+  .club { gap: 24px; }
+  .cifras { gap: 10px; }
+  .cifra { border-radius: 18px; padding: 16px 12px; }
+  .avance-galeria { gap: 14px; }
+  .avance-foto { height: 200px; }
+  .pie { margin-top: 44px; }
+  .pie .contenedor { padding-top: 20px; padding-bottom: 20px; }
+}
+
+/* Teléfonos estrechos */
+@media (max-width: 480px) {
+  .solo-ancho { display: none; }   /* el botón de la cabecera se queda en "2026" */
+}
+@media (max-width: 350px) {
+  .marca-nombre { font-size: 15px; }
+  .acceso { padding: 12px 10px; gap: 8px; }
+  .acceso-nombre { font-size: 15px; }
+  .cita { padding: 18px; }
+  .cita h1 { font-size: 30px; }
+}
+
+/* ==========================================================================
+   Páginas interiores: Historia, Temporadas, Galería y cada temporada
+   (cada página lleva en <body> una clase pag-… para sus estilos propios)
+   ========================================================================== */
+#content { flex: 1 0 auto; width: 100%; max-width: 920px; margin: 0 auto; padding: 32px 32px 0; }
+.pag-galeria #content { max-width: var(--ancho); }
+
+.volver { display: inline-block; font-size: 14px; font-weight: 500; color: var(--gris); text-decoration: none; padding: 10px 0; margin-bottom: 4px; }
+.volver:hover { color: var(--verde); }
+h1.temporada-titulo, h1.tit { font-size: 40px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+h1.tit { margin-bottom: 6px; }
+.sub { font-size: 16px; color: var(--gris); margin-bottom: 22px; }
+
+/* avisos y cajas de texto */
+.aviso { background: #FBF1D6; color: #5C4A12; border-radius: 16px; padding: 14px 18px; margin-bottom: 14px; font-size: 14.5px; line-height: 1.5; }
+.caja-texto { background: var(--papel); border-radius: 20px; padding: 20px 24px; margin-bottom: 14px; font-size: 15.5px; color: var(--texto); line-height: 1.6; }
+.caja-titulo { font-family: var(--letra-titulos); font-size: 19px; font-weight: 600; color: var(--tinta); line-height: 1.25; margin-bottom: 6px; }
+.caja-nota { font-size: 14.5px; color: var(--gris); line-height: 1.55; }
+.caja-nota-pie { margin-top: 12px; }
+.tabla-simple { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 12px; }
+
+/* etiquetas de estado */
+.e-badge, .t-badge, .ev-badge { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+.badge-vivo, .badge-directo { background: var(--oro); color: var(--oro-tinta); }
+.badge-doc, .badge-archivo { background: var(--tinte); color: #4A564F; }
+.badge-prox { background: #FBF1D6; color: #5C4A12; }
+
+/* ---------- Página de una temporada: tarjetas de evento ---------- */
+.pag-temporada .evento { display: block; text-decoration: none; color: inherit; background: var(--papel); border-radius: 20px; padding: 20px 24px; margin-bottom: 12px; border: 2px solid transparent; }
+.pag-temporada .evento.destacado { border-color: var(--verde); }
+.pag-temporada .evento.pendiente { opacity: 0.6; }
+.pag-temporada a.evento { transition: box-shadow .15s ease; }
+.pag-temporada a.evento:hover { color: inherit; box-shadow: 0 8px 20px rgba(23,58,44,0.10); }
+.e-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.e-info { flex: 1; min-width: 0; }
+.e-nombre { font-family: var(--letra-titulos); font-size: 19px; font-weight: 600; color: var(--tinta); line-height: 1.25; }
+.e-detalle { font-size: 14.5px; color: var(--gris); margin-top: 5px; line-height: 1.55; }
+.e-detalle strong { color: var(--texto); }
+
+/* ---------- Página de una temporada: calendario de 12 meses ---------- */
+.cal-card { background: var(--papel); border-radius: 24px; padding: 24px; margin-bottom: 16px; }
+.cal-titulo { font-family: var(--letra-titulos); font-size: 20px; font-weight: 700; color: var(--tinta); margin-bottom: 4px; }
+.cal-nota { font-size: 14px; color: var(--gris); margin-bottom: 16px; }
+#calendario { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.mes { border: 1px solid var(--linea); border-radius: 16px; padding: 12px 10px 10px; }
+.mes-nombre { font-family: var(--letra-titulos); font-size: 15px; font-weight: 600; color: var(--tinta); text-align: center; margin-bottom: 6px; }
+.mes-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.dia-cab { font-size: 10px; color: var(--gris); text-align: center; font-weight: 700; padding-bottom: 2px; }
+.dia { font-size: 12px; text-align: center; color: var(--texto); border-radius: 50%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1.5px solid transparent; }
+.dia.vacio { visibility: hidden; }
+.ev-liga     { background: var(--verde); color: #FFFFFF; font-weight: 700; }
+.ev-apertura { background: #B45309; color: #FFFFFF; font-weight: 700; }
+.ev-ryder    { background: #6D28D9; color: #FFFFFF; font-weight: 700; }
+.ev-clausura { background: #BE123C; color: #FFFFFF; font-weight: 700; }
+.ev-otro     { background: #475569; color: #FFFFFF; font-weight: 700; }
+.dia.tentativo { background: transparent; font-weight: 700; border-style: dashed; }
+.dia.tentativo.ev-liga     { color: var(--verde); border-color: var(--verde); }
+.dia.tentativo.ev-apertura { color: #B45309; border-color: #B45309; }
+.dia.tentativo.ev-ryder    { color: #6D28D9; border-color: #6D28D9; }
+.dia.tentativo.ev-clausura { color: #BE123C; border-color: #BE123C; }
+.dia.tentativo.ev-otro     { color: #475569; border-color: #475569; }
+#leyenda { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--gris); }
+.ley-item { display: flex; align-items: center; gap: 6px; }
+.ley-punto { width: 12px; height: 12px; border-radius: 50%; }
+.ley-tent { width: 12px; height: 12px; border-radius: 50%; border: 1.5px dashed #7A857E; }
+
+/* ---------- Índice de temporadas ---------- */
+.temporada { display: block; text-decoration: none; color: inherit; background: var(--papel); border-radius: 20px; padding: 18px 24px; margin-bottom: 12px; border: 2px solid transparent; transition: border-color .15s ease, box-shadow .15s ease; }
+.temporada.actual { border-color: var(--verde); }
+a.temporada:hover { color: inherit; border-color: var(--oro); box-shadow: 0 8px 20px rgba(23,58,44,0.08); }
+.temporada.futura { opacity: 0.55; cursor: default; }
+.t-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.t-anio { font-family: var(--letra-titulos); font-size: 28px; font-weight: 700; color: var(--verde); min-width: 84px; line-height: 1.05; }
+.t-anio-doble { font-size: 20px; }
+.t-info { flex: 1; min-width: 0; }
+.t-nombre { font-family: var(--letra-titulos); font-size: 18px; font-weight: 600; color: var(--tinta); line-height: 1.25; }
+.t-detalle { font-size: 14.5px; color: var(--gris); margin-top: 3px; }
+.pag-temporadas .nota { text-align: center; margin-top: 24px; line-height: 1.6; }
+
+/* ---------- Historia ---------- */
+.card { background: var(--papel); border-radius: 24px; margin-bottom: 16px; overflow: hidden; }
+.card-body { padding: 28px; }
+.card-title { font-family: var(--letra-titulos); font-size: 22px; font-weight: 700; color: var(--tinta); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 14px; }
+.hito { display: flex; gap: 18px; margin-bottom: 18px; }
+.hito:last-child { margin-bottom: 0; }
+.hito-anio { font-family: var(--letra-titulos); font-size: 19px; font-weight: 700; color: var(--verde); min-width: 66px; border-right: 3px solid var(--oro); padding-right: 14px; }
+.hito-texto { font-size: 15.5px; line-height: 1.55; color: var(--texto); padding-top: 1px; }
+.pag-historia table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.pag-historia th { background: var(--verde); color: #FFFFFF; padding: 10px 12px; text-align: left; font-size: 13px; font-weight: 700; }
+.pag-historia th:first-child { border-radius: 10px 0 0 10px; }
+.pag-historia th:last-child { border-radius: 0 10px 10px 0; }
+.pag-historia td { padding: 10px 12px; border-bottom: 1px solid var(--linea); vertical-align: top; color: var(--texto); }
+.pag-historia tr:last-child td { border-bottom: 0; }
+.pag-historia tr:nth-child(odd) td { background: #F7F9F6; }
+.pag-historia td.ev { font-weight: 700; color: var(--verde); white-space: nowrap; }
+.pend { color: #6F7A73; font-style: italic; }
+.cat-nota { font-size: 14px; color: var(--gris); margin-top: 10px; line-height: 1.5; }
+
+/* ---------- Galería ---------- */
+#filtros { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.filtro { font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--verde); background: var(--papel); color: var(--verde); cursor: pointer; }
+.filtro.on { background: var(--verde); color: #FFFFFF; }
+.pag-galeria .evento { background: var(--papel); border-radius: 20px; margin-bottom: 16px; overflow: hidden; }
+.ev-cab { padding: 18px 20px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ev-info .ev-nom { font-family: var(--letra-titulos); font-size: 19px; font-weight: 600; color: var(--tinta); line-height: 1.25; }
+.ev-info .ev-meta { font-size: 14px; color: var(--gris); margin-top: 2px; }
+.ev-badge { background: var(--oro); color: var(--oro-tinta); }
+.ev-badge.arch { background: var(--tinte); color: #4A564F; }
+.ev-fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 6px; padding: 0 10px 10px; }
+.ev-fotos img { width: 100%; max-width: none; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; cursor: pointer; background: #DCE3DB; transition: opacity .15s; }
+.ev-fotos img:hover { opacity: .85; }
+.pag-galeria .vacio { background: var(--papel); border-radius: 20px; padding: 32px 24px; text-align: center; font-size: 15px; color: var(--gris); }
+/* visor a pantalla completa */
+#lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 100; align-items: center; justify-content: center; }
+#lb.on { display: flex; }
+#lb img { max-width: 94vw; max-height: 88vh; border-radius: 6px; }
+#lb-cerrar { position: absolute; top: 8px; right: 10px; width: 48px; height: 48px; color: #FFFFFF; font-size: 30px; cursor: pointer; line-height: 1; background: none; border: none; padding: 0; }
+#lb-cap { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.9); font-size: 14px; padding: 0 16px; }
+.lb-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #FFFFFF; font-size: 40px; cursor: pointer; background: none; border: none; padding: 12px 16px; user-select: none; }
+#lb-prev { left: 4px; } #lb-next { right: 4px; }
+
+/* ---------- Páginas interiores en móvil ---------- */
+@media (max-width: 760px) {
+  #content { padding: 20px 16px 0; }
+  h1.temporada-titulo, h1.tit { font-size: 28px; margin-bottom: 14px; }
+  h1.tit { margin-bottom: 4px; }
+  .sub { font-size: 15px; margin-bottom: 16px; }
+  .pag-temporada .evento { border-radius: 18px; padding: 16px 18px; }
+  /* la etiqueta de estado pasa debajo del texto para no estrecharlo */
+  .e-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .e-info { flex: none; width: 100%; }
+  .caja-texto { border-radius: 18px; padding: 16px 18px; font-size: 15px; }
+  .tabla-simple { font-size: 13.5px; }
+  .e-nombre { font-size: 17px; }
+  .cal-card { border-radius: 20px; padding: 16px; }
+  #calendario { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+  .mes { padding: 10px 6px 8px; }
+  .dia { font-size: 11px; }
+  .temporada { border-radius: 18px; padding: 16px 18px; }
+  .t-row { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 8px 14px; }
+  .t-anio { font-size: 22px; min-width: 58px; padding-top: 1px; }
+  .t-anio-doble { font-size: 17px; }
+  .t-nombre { font-size: 16px; }
+  .t-badge { grid-column: 2; justify-self: start; }
+  .card { border-radius: 20px; }
+  .card-body { padding: 18px; }
+  .card-title { font-size: 19px; }
+  .hito { gap: 12px; }
+  .hito-anio { font-size: 17px; min-width: 54px; padding-right: 10px; }
+  .hito-texto { font-size: 15px; }
+  .pag-historia table { font-size: 13.5px; }
+  .pag-historia th, .pag-historia td { padding: 8px 8px; }
+  .pag-historia td.ev { white-space: normal; }
+  .ev-cab { padding: 14px 16px 10px; }
+  .ev-fotos { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); padding: 0 8px 8px; }
+}
