@@ -170,10 +170,11 @@ const TEMPORADA = {
       ] },
     { id: 'ryder', nombre: 'Ryder Cup: Jubilados vs No Jubilados', inicio: '2026-09-24', fin: '2026-09-24',
       corto: '24 sep', cuando: '24 de septiembre', lugar: 'El Encín Golf', formato: 'scramble por equipos',
-      inscripcion: 'ryder' },
+      inscripcion: 'ryder', resultado: 'Ganan los No Jubilados, 52 a 50' },
     { id: 'clausura', nombre: 'Campeonato de Clausura', inicio: '2026-10-10', fin: '2026-10-11',
       corto: '10–11 oct', cuando: '10 y 11 de octubre', lugar: 'Salamanca', formato: 'doble jornada',
       lugarCalendario: 'Salamanca · Villamayor y Zarapicos', inscripcion: 'clausura',
+      resultado: 'Stableford: José Luis Delgado · Scratch: Fernando Ortega',
       dias: [ { dia: 'Sábado 10',  campo: 'Golf Villamayor', par: 71 },
               { dia: 'Domingo 11', campo: 'Golf Zarapicos',  par: 72 } ] }
   ]
@@ -234,7 +235,7 @@ function fechaLarga(iso) {
 }
 /* "Miguel Ángel Fernández Sanz" → "Miguel Ángel Fernández" (se quita el segundo apellido) */
 function nombreCorto(nombre) {
-  const p = String(nombre).trim().split(/\s+/);
+  const p = String(nombre).trim().replace(/^Jose Luis /, 'José Luis ').split(/\s+/);   /* en el portal falta la tilde */
   return p.length >= 3 ? p.slice(0, -1).join(' ') : p.join(' ');
 }
 function plural(n, uno, varios) { return n + ' ' + (n === 1 ? uno : varios); }
@@ -276,6 +277,8 @@ function citas() {
 }
 const PROXIMA = citas().find(c => c.fin >= HOY) || null;
 const ligaTerminada = !!LIGA && LIGA.fin < HOY;
+/* página de archivo de la temporada (se usa cuando la temporada ya ha terminado) */
+const ARCHIVO = 'temporada' + TEMPORADA.anio + '.html';
 
 /* ---------- bloque verde ---------- */
 function pintarCita() {
@@ -326,7 +329,7 @@ function pintarCita() {
     if (dias.children.length) caja.append(dias);
     const pie = el('div', 'cita-pie');
     const acc = el('div', 'cita-acciones');
-    const ver = el('a', 'boton boton-oro', 'Ver resultados'); ver.href = enlacePortal('resultados');
+    const ver = el('a', 'boton boton-oro', 'Ver la temporada ' + TEMPORADA.anio); ver.href = ARCHIVO;
     acc.append(ver);
     pie.append(el('div'), acc);
     caja.append(pie);
@@ -351,6 +354,8 @@ function clasificar(resultados, campo) {
 function pintarClasificacion() {
   document.getElementById('liga-antetitulo').textContent = LIGA ? LIGA.nombre : 'La Liga Tecnatom';
   document.getElementById('liga-titulo').textContent = ligaTerminada ? 'Clasificación final' : 'Clasificación provisional';
+  const completa = document.querySelector('#liga .cabecera-seccion .enlace');
+  if (completa && ligaTerminada) completa.href = ARCHIVO + '#liga';
 
   const h = datos.handicap, s = datos.scratch;
   document.getElementById('liga').classList.toggle('oculto', h.length === 0);

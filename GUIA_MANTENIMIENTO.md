@@ -71,6 +71,15 @@ del bloque `TEMPORADA` (fechas en formato AAAA-MM-DD).
    y cambiar el año y el enlace al nuevo fichero. A la temporada anterior,
    quitarle la palabra `actual` de su `class` y cambiar su badge a `badge-archivo`.
 
+## Cierre de una temporada
+
+Al terminar la Clausura, la página `temporadaAAAA.html` se convierte en el archivo
+definitivo de la temporada: palmarés, clasificaciones completas de cada competición,
+resultados jornada a jornada, fotos, jugadores con su hándicap final y cuotas. Se
+genera a partir de los datos del portal y del palmarés oficial; pedírselo a Teebot.
+La temporada 2026 se cerró el 13 de octubre de 2026 (copia de seguridad del portal en
+la carpeta de Drive "Archivos historico del club estraidos por Claude").
+
 ## Cómo añadir un año al palmarés
 
 En `historia.html`, copiar una tarjeta `<div class="card">` completa, cambiar el
