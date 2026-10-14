@@ -60,16 +60,29 @@ del bloque `TEMPORADA` (fechas en formato AAAA-MM-DD).
 
 ## Cómo abrir una temporada nueva
 
-1. En `temporada.js`, cambiar `anio` y `enlace`. Con eso el botón verde de la
-   cabecera cambia en todas las páginas.
-2. En `index.html`, sustituir la lista `eventos` del bloque `TEMPORADA` por el
-   calendario del nuevo año y cambiar `anio` y `edicion`.
-3. Crear la página de la temporada: copiar `temporada2026.html`, subirla con el
-   nombre del nuevo año (p. ej. `temporada2027.html`) y editar sus eventos.
-4. En `temporadas.html`, copiar el bloque que empieza en
-   `<a class="temporada actual"` y termina en `</a>`, pegarlo encima del anterior
-   y cambiar el año y el enlace al nuevo fichero. A la temporada anterior,
-   quitarle la palabra `actual` de su `class` y cambiar su badge a `badge-archivo`.
+Se hace en dos pasos.
+
+**1. Temporada en preparación** (hecho para 2027 el 14-10-2026):
+
+- `temporadaAAAA.html` con las competiciones previstas y «Fecha por definir».
+- En `temporadas.html`, su tarjeta con `class="temporada actual"` y el badge
+  `badge-prox` «En preparación».
+- En `temporada.js`, `anio` el nuevo año y `enlace` esa página
+  (p. ej. `https://clubdegolfdetecnatom.github.io/temporada2027.html`).
+- La portada sigue mostrando el resumen de la temporada anterior, con un enlace
+  «Temporada AAAA en preparación».
+
+Cuando se aprueben fechas: en `temporadaAAAA.html`, cambiar el detalle y el
+badge de cada competición y añadir sus días a la lista `EVENTOS` del final.
+
+**2. Temporada en marcha** (cuando abra el portal del nuevo año):
+
+1. En `temporada.js`, cambiar `enlace` a la dirección del portal
+   (p. ej. `https://clubdegolfdetecnatom.github.io/campeonato2027/`).
+2. En `index.html`, sustituir el bloque `TEMPORADA` (año, edición y eventos con
+   sus fechas) y poner al día `RESPALDO`. Los accesos de la portada van solos al
+   portal `campeonatoAAAA` de ese año.
+3. En `temporadas.html`, cambiar el badge de la temporada a `badge-vivo`.
 
 ## Cierre de una temporada
 

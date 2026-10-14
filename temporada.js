@@ -9,8 +9,8 @@
      enlace → la dirección de la parte interactiva de esa temporada
    ========================================================================== */
 window.TEMPORADA_ACTUAL = {
-  anio: 2026,
-  enlace: 'https://clubdegolfdetecnatom.github.io/campeonato2026/'
+  anio: 2027,
+  enlace: 'https://clubdegolfdetecnatom.github.io/temporada2027.html'   // al abrir el portal 2027: 'https://clubdegolfdetecnatom.github.io/campeonato2027/'
 };
 
 /* ---------- a partir de aquí no hace falta tocar nada ---------- */

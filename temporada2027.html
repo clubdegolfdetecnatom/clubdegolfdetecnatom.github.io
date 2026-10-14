@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Temporada 2027 · Club de Golf de Tecnatom</title>
+  <link rel="icon" href="escudo.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;700&display=swap"/>
+  <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body class="pag-temporada">
+
+<!-- ===== Cabecera común (igual en todas las páginas) ===== -->
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <img src="escudo.jpg" alt="Escudo del Club de Golf de Tecnatom" width="52" height="52"/>
+      <span>
+        <span class="marca-nombre">Club de Golf de Tecnatom</span>
+        <span class="marca-lema">Desde 1993 · Madrid</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="index.html">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a class="activo" href="temporadas.html">Temporadas</a>
+      <a href="galeria.html">Galería</a>
+    </nav>
+    <!-- El año y el enlace de este botón se cambian en temporada.js -->
+    <a class="boton-temporada" href="https://clubdegolfdetecnatom.github.io/campeonato2026/"><span class="solo-ancho">Temporada </span><span class="anio-temporada">2026</span></a>
+  </div>
+</header>
+
+<div id="content">
+
+  <a class="volver" href="temporadas.html">← Todas las temporadas</a>
+  <h1 class="temporada-titulo">Temporada 2027</h1>
+
+  <div class="aviso">La temporada 2027 está en preparación. Estas son las competiciones previstas; las fechas,
+    los campos y la inscripción se publicarán aquí en cuanto se aprueben.</div>
+
+  <!-- ✏️ COMPETICIONES DE LA TEMPORADA 2027. Al aprobar una fecha: cambiar el detalle y el badge.
+       Badges: badge-prox (Fecha por definir / Próximamente), badge-vivo (Inscripción abierta / En juego), badge-doc (Celebrado). -->
+
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Campeonato de Apertura</div>
+        <div class="e-detalle">Fecha y campo por definir</div>
+      </div>
+      <div class="e-badge badge-prox">Fecha por definir</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Golf y Cordero</div>
+        <div class="e-detalle">Fecha y campo por definir · jornada de golf y gastronomía</div>
+      </div>
+      <div class="e-badge badge-prox">Fecha por definir</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">XXXV La Liga Tecnatom</div>
+        <div class="e-detalle">Jornadas, fechas y campos por definir</div>
+      </div>
+      <div class="e-badge badge-prox">Fecha por definir</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Ryder Cup: Jubilados vs No Jubilados</div>
+        <div class="e-detalle">Fecha y campo por definir</div>
+      </div>
+      <div class="e-badge badge-prox">Fecha por definir</div>
+    </div>
+  </div>
+  <div class="evento">
+    <div class="e-row">
+      <div class="e-info">
+        <div class="e-nombre">Campeonato de Clausura</div>
+        <div class="e-detalle">Fecha y campo por definir</div>
+      </div>
+      <div class="e-badge badge-prox">Fecha por definir</div>
+    </div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-titulo">Calendario de la temporada</div>
+    <div class="cal-nota">Aún no hay fechas aprobadas. Se irán marcando en el calendario: con círculo relleno las confirmadas y con trazo discontinuo las tentativas.</div>
+    <div id="calendario"></div>
+    <div id="leyenda">
+      <span class="ley-item"><span class="ley-punto" style="background:#B45309"></span>Apertura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#173A2C"></span>La Liga Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#6D28D9"></span>Ryder Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
+      <span class="ley-item"><span class="ley-tent"></span>Fecha tentativa</span>
+    </div>
+  </div>
+
+  <!-- ✏️ AÑADIR EVENTOS SUELTOS AQUÍ si los hay este año: copia un bloque .evento -->
+
+</div>
+
+<!-- ===== Pie común ===== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-nombre">Club de Golf de Tecnatom</div>
+    <div>Web mantenida por la Oficina del CaddIA Master</div>
+  </div>
+</footer>
+
+<script>
+/* EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
+   tipo: 'apertura' | 'liga' | 'ryder' | 'clausura' | 'otro'
+   tent: true = fecha tentativa (círculo discontinuo); quitar tent al confirmarla. */
+const ANIO = 2027;
+const EVENTOS = [
+  /* Aún sin fechas. Ejemplo de línea, cuando se aprueben:
+  { fecha: '2027-05-14', tipo: 'apertura', tent: true }, */
+];
+
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DIAS = ['L','M','X','J','V','S','D'];
+const mapa = {};
+EVENTOS.forEach(e => { mapa[e.fecha] = e; });
+
+const cont = document.getElementById('calendario');
+for (let m = 0; m < 12; m++) {
+  const mes = document.createElement('div'); mes.className = 'mes';
+  mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
+  const grid = document.createElement('div'); grid.className = 'mes-grid';
+  DIAS.forEach(d => { grid.innerHTML += '<div class="dia-cab">' + d + '</div>'; });
+  const primero = new Date(ANIO, m, 1);
+  let offset = (primero.getDay() + 6) % 7;
+  for (let v = 0; v < offset; v++) grid.innerHTML += '<div class="dia vacio">·</div>';
+  const nDias = new Date(ANIO, m + 1, 0).getDate();
+  for (let d = 1; d <= nDias; d++) {
+    const clave = ANIO + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const ev = mapa[clave];
+    let cls = 'dia';
+    if (ev) { cls += ' ev-' + ev.tipo; if (ev.tent) cls += ' tentativo'; }
+    grid.innerHTML += '<div class="' + cls + '">' + d + '</div>';
+  }
+  mes.appendChild(grid);
+  cont.appendChild(mes);
+}
+</script>
+<script src="temporada.js"></script>
+</body>
+</html>
