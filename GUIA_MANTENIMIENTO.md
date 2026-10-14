@@ -80,6 +80,33 @@ genera a partir de los datos del portal y del palmarés oficial; pedírselo a Te
 La temporada 2026 se cerró el 13 de octubre de 2026 (copia de seguridad del portal en
 la carpeta de Drive "Archivos historico del club estraidos por Claude").
 
+### Qué se hizo al cerrar 2026 (para repetirlo en 2027)
+
+1. **Copia de seguridad del portal** (todas las tablas) en Drive, carpeta
+   "Cierre temporada 2026", comprobada tabla a tabla.
+2. **Página de archivo** `temporada2026.html`: palmarés oficial, clasificaciones
+   completas, jornada a jornada, Ryder, Clausura, fotos, jugadores con hándicap
+   final y cuotas.
+3. **Portada, Historia y Temporadas** al día: la portada muestra el resumen de
+   la temporada y enlaza al archivo.
+4. **Portal congelado** (14-10-2026): el portal `campeonato2026` queda solo de
+   consulta. Sin inscripciones, cuotas, subida de fotos ni Administración; la
+   contraseña y las licencias ya no están en la página. Lo hace la línea
+   `const TEMPORADA_CERRADA = true;` del portal y un aviso con enlace al archivo.
+5. **Base de datos solo de lectura** (si se aplica `bd_cerrar_escrituras_2026.sql`,
+   guardado en la carpeta de Drive junto con el que lo deshace).
+
+## El portal de la temporada (repositorio `campeonatoAAAA`)
+
+- Es la parte interactiva: inscripción, resultados, hándicaps, calendario,
+  fotos y administración. Lee y escribe en la base de datos (Supabase).
+- Desde octubre de 2026 tiene el mismo aspecto que la web (misma cabecera,
+  colores y letra). Sus estilos están dentro del propio fichero, no en
+  `estilos.css`, para que un cambio en la web no pueda romper el portal.
+- Su cabecera usa el `temporada.js` de la web, así que el botón verde siempre
+  lleva a la temporada en curso.
+- Una temporada cerrada se congela con `TEMPORADA_CERRADA = true` (ver arriba).
+
 ## Cómo añadir un año al palmarés
 
 En `historia.html`, copiar una tarjeta `<div class="card">` completa, cambiar el
