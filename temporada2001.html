@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Temporada 2001 · Club de Golf de Tecnatom</title>
+  <title>Temporada 2001 · IX Campeonato · Club de Golf de Tecnatom</title>
   <link rel="icon" href="escudo.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -34,58 +34,176 @@
 </header>
 
 <div id="content">
+
   <a class="volver" href="temporadas.html">← Todas las temporadas</a>
   <h1 class="temporada-titulo">Temporada 2001 · IX Campeonato</h1>
-  <div class="aviso">
-    ⚠️ Los datos de esta temporada se han reconstruido a partir del archivo de circulares conservado. Algunos resultados finales no se conservan completos.
+
+  <div class="caja-texto">
+Un año que empezó con una pérdida. A comienzos de 2001 falleció de forma repentina Juan Antonio Moreno, campeón de segunda
+ categoría de los Juegos de Otoño unas semanas antes; el club le despidió con una corona de flores y bautizó con su nombre los Juegos de
+ Otoño. La temporada siguió: Apertura en El Fresnillo, un IX Campeonato con cuota de 5.000 pesetas, el primer A.A. Match Play, una nueva
+ cita con el Corporate Golf Challenge, el VII Open en Estepona y una Clausura por parejas en Calatayud. Fue también el año de la primera
+ web del club y de las primeras fotografías que conserva el archivo.
   </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">IX Campeonato de Golf de Tecnatom · La Liga</div>
-        <div class="e-detalle">Abril–octubre · cuota de temporada de 5.000 pesetas<br/>La clasificación final no se conserva en el archivo.</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
+
+  <nav class="indice-temp" aria-label="Competiciones de la temporada">
+    <a href="#palmares">Palmarés</a>
+    <a href="#memoria">In memoriam</a>
+    <a href="#apertura">Apertura</a>
+    <a href="#liga">Liga y Match Play</a>
+    <a href="#open">VII Open</a>
+    <a href="#clausura">Clausura</a>
+    <a href="#club">El club en 2001</a>
+  </nav>
+
+  <h2 class="seccion-temp" id="palmares">Palmarés</h2>
+  <p class="seccion-sub">Según las hojas de resultados de 2001 y la crónica del club. La clasificación final de la Liga no se conserva.</p>
+  <div class="palmares-grid">
+    <div class="palm"><small>VII Open · Trofeo Viajes El Corte Inglés</small><b>Javier Bros</b><span>34 puntos · Atalaya, New Course</span></div>
+    <div class="palm"><small>VII Open · Damas</small><b>Lucía Mourín</b><span>34 puntos</span></div>
+    <div class="palm"><small>Clausura · Trofeo Hispania Services</small><b>Fernando Ortega y Javier Bros</b><span>35 puntos por parejas · Augusta Golf Calatayud</span></div>
+    <div class="palm"><small>A.A. Match Play</small><b>Final a cuatro</b><span>Mourín, Ortega, Rembado y del Amo · Retamares</span></div>
   </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Match Play 2001</div>
-        <div class="e-detalle">Julio 2001 · cuadro de eliminatorias entre socios, documentado en el archivo.</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Corporate Golf Challenge</div>
-        <div class="e-detalle">La Herrería · equipo: Alain Cardoso, Fernando Ortega, José M. Mourín y Juan Bros<br/><em>«A sólo 3 puntos de la clasificación. Aquel putt, aquel approach y todos los árboles del mundo mundial.»</em></div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">VII Open de Tecnatom · Trofeo Viajes El Corte Inglés</div>
-        <div class="e-detalle">13 oct 2001 · Atalaya Golf, New Course (Estepona, Málaga) · 24 participantes<br/><strong>Caballeros:</strong> 1º Javier Bros (34) · 2º José M. Mourín (32) · 3º José L. Rembado (32)<br/><strong>Damas:</strong> 1ª Lucía Mourín (34) · 2ª Paloma del Río (29) · 3ª Gloria de Armas (27)<br/><em>Bola más larga:</em> Fernando Ortega (caballeros) y Paloma del Río (damas) · <em>Bola más cercana:</em> Lucía Mourín</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Campeonato de Clausura · Trofeo Hispania Services</div>
-        <div class="e-detalle">9 nov 2001 · Augusta Golf Calatayud · por parejas, cuatro bolas mejor bola<br/>1º Fernando Ortega + Javier Bros (35) · 2º Fernando López + Lucía Mourín (34) · 3º Emilio Bachiller (34)<br/><em>Bola más cercana a bandera:</em> José M. Mourín</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
+
+  <div class="cal-card">
+    <div class="cal-titulo">Calendario de la temporada</div>
+    <div class="cal-nota">Solo las fechas que constan en los adjuntos conservados. Las jornadas de la Liga de 2001 no tienen convocatorias en el archivo.</div>
+    <div id="calendario"></div>
+    <div id="leyenda">
+      <span class="ley-item"><span class="ley-punto" style="background:#B45309"></span>Apertura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
     </div>
   </div>
 
+  <!-- ===== Juan Antonio Moreno ===== -->
+  <h2 class="seccion-temp" id="memoria">Juan Antonio Moreno</h2>
+  <p class="seccion-sub">El Memorial que da nombre a los Juegos de Otoño</p>
+<div class="caja-texto">
+<p>«Sin tiempo para consultaros, pero en nombre de todos sus compañeros y amigos de lo del golf, hemos querido que una corona de
+     flores acompañe a Juan Antonio Moreno en su precipitado adiós. Dios quiera que en el cielo, con lo enorme que tiene que ser, haya un
+     espectacular campo donde pueda seguir disfrutando del golf como lo hizo mientras estuvo entre nosotros». Así lo despidió Juan Bros en la
+     circular 2/01. A propuesta de todos, el Campeonato de Golf de los Juegos de Otoño pasó a llamarse <b>Memorial Juan A. Moreno</b>, como
+     se sigue llamando. En noviembre de 2000 había ganado la segunda categoría de esos mismos Juegos con 41 puntos, la mejor tarjeta del día.</p>
 </div>
+
+  <!-- ===== Campeonato de Apertura · Trofeo ISOVER ===== -->
+  <h2 class="seccion-temp" id="apertura">Campeonato de Apertura · Trofeo ISOVER</h2>
+  <p class="seccion-sub">Sábado 17 de marzo · Club de Golf El Fresnillo (Ávila) · seis partidos desde las 9:30</p>
+<div class="caja-texto">
+<p>Reservado «a los ilustres miembros del club de golf de tecnatom y a sus ilustres invitados», con tres categorías
+     (primera, segunda y damas), green fee de grupo a 4.000 pesetas y comida con entrega de premios para 25 a las 15:30. Entre los inscritos había
+     varios debutantes aún sin hándicap («SH»). Los resultados se publicaron en la web y no se conservan.</p>
+</div>
+
+  <!-- ===== IX Campeonato de Golf de Tecnatom y A.A. Match Play ===== -->
+  <h2 class="seccion-temp" id="liga">IX Campeonato de Golf de Tecnatom y A.A. Match Play</h2>
+  <p class="seccion-sub">Primavera y verano · cuota de temporada de 5.000 pesetas · Match Play el 24 y 26 de julio en Retamares</p>
+<div class="caja-texto">
+<p>La Liga estrenó cuota única para toda la temporada y campos como Valdeláguila, cuyo plano de acceso —«en la cima del
+     Gurugú, salirse a la izquierda»— circuló en mayo. Sus clasificaciones se colgaban ya en la web y no han llegado hasta hoy.</p>
+     <p>En julio se jugó por primera vez el <b>A.A. Match Play</b>, con premios donados por Antonio Alonso —de ahí las dos aes que heredaría la
+     AA Cup—: los dieciséis mejores de la Liga, sin distinción de categorías, en eliminatorias a nueve hoyos, ganando cada hoyo quien sumara más
+     puntos stableford. Dos tardes en Retamares y cena de cierre «de la primera parte de la temporada». Las tarjetas de ejemplo del reglamento
+     enfrentaban a dos jugadores imaginarios, «Taiguer Buds» y «Fil Niquelson».</p>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">A.A. Match Play · cuadro final</div>
+<div class="tabla-caja"><table class="tabla-datos"><thead><tr><th>Puestos</th><th>Jugadores</th></tr></thead><tbody>
+<tr><td>1.º a 4.º</td><td>José M. Mourín, Fernando Ortega, José L. Rembado, Mª Carmen del Amo</td></tr>
+<tr><td>5.º a 8.º</td><td>Emilio Bachiller, Miguel A. Guillén, Fernando López, José Mª Sánchez</td></tr>
+<tr><td>9.º a 12.º</td><td>Javier Bros, Antonio Alonso, José L. Alonso, Juan Bros</td></tr>
+<tr><td>13.º a 16.º</td><td>José L. Callejo, José L. Mendizábal, María Moreno, Santiago San Antonio</td></tr>
+</tbody></table></div>
+<div class="leyenda-tabla">El cuadro conservado agrupa a los jugadores por la última eliminatoria; el orden exacto se marcaba con colores que no han sobrevivido.</div>
+</div>
+<div class="caja-texto">
+<p>En el <b>Corporate Golf Challenge</b>, en La Herrería, el equipo de Alain Cardoso, Fernando Ortega, José M. Mourín y Juan Bros
+     se quedó «a sólo 3 puntos de la clasificación. Aquel putt, aquel approach y todos los árboles del mundo mundial. Pero qué gozada de campo».</p>
+</div>
+<div class="fotos-tira">
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_categorias.jpg" target="_blank" rel="noopener" title="Los campeones de 1.ª y 2.ª categoría"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_categorias_mini.jpg" alt="Los campeones de 1.ª y 2.ª categoría"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_trofeos.jpg" target="_blank" rel="noopener" title="Los trofeos y algunos regalos"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_trofeos_mini.jpg" alt="Los trofeos y algunos regalos"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_putt.jpg" target="_blank" rel="noopener" title="Los ganadores del concurso de putt"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/campeones-2001/campeones2001_putt_mini.jpg" alt="Los ganadores del concurso de putt"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/tecnatom2001_partida.jpg" target="_blank" rel="noopener" title="Abril de 2001: una partida cualquiera"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/tecnatom2001_partida_mini.jpg" alt="Abril de 2001: una partida cualquiera"/></a>
+</div>
+
+  <!-- ===== VII Open de Tecnatom · Trofeo Viajes El Corte Inglés ===== -->
+  <h2 class="seccion-temp" id="open">VII Open de Tecnatom · Trofeo Viajes El Corte Inglés</h2>
+  <p class="seccion-sub">Sábado 13 de octubre · Atalaya Golf, New Course (Estepona, Málaga) · 24 jugadores</p>
+<div class="caja-texto">
+<p>El Open viajó a la Costa del Sol: siete partidos desde las 9:03, con premios de bola más larga para damas y caballeros
+     en el hoyo 3 y de bola más cercana en el 9, y cena con entrega de trofeos. Ganaron dos jugadores de hándicap 35 y 34.</p>
+</div>
+<div class="dos-col">
+<div class="caja-texto">
+<div class="caja-titulo">Caballeros</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.º</span><span class="quien">Javier Bros</span><span class="premio">34 puntos</span></li>
+  <li><span class="pos">2.º</span><span class="quien">José M. Mourín</span><span class="premio">32 puntos</span></li>
+  <li><span class="pos">3.º</span><span class="quien">José L. Rembado</span><span class="premio">32 puntos</span></li>
+</ol>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Damas</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.ª</span><span class="quien">Lucía Mourín</span><span class="premio">34 puntos</span></li>
+  <li><span class="pos">2.ª</span><span class="quien">Paloma del Río</span><span class="premio">29 puntos</span></li>
+  <li><span class="pos">3.ª</span><span class="quien">Gloria de Armas</span><span class="premio">27 puntos</span></li>
+</ol>
+</div>
+</div>
+<p class="seccion-sub">Bola más larga: Fernando Ortega y Paloma del Río. Bola más cercana: Lucía Mourín.</p>
+<div class="fotos-tira">
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_01.jpg" target="_blank" rel="noopener" title="La foto de familia del VII Open"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_01_mini.jpg" alt="La foto de familia del VII Open"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_02.jpg" target="_blank" rel="noopener" title="Partida en el tee del 1"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_02_mini.jpg" alt="Partida en el tee del 1"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_03.jpg" target="_blank" rel="noopener" title="Cuatro jugadores, primera hora"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_03_mini.jpg" alt="Cuatro jugadores, primera hora"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_04.jpg" target="_blank" rel="noopener" title="Antes de la salida"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_04_mini.jpg" alt="Antes de la salida"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_05.jpg" target="_blank" rel="noopener" title="Otra partida, lista para empezar"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_05_mini.jpg" alt="Otra partida, lista para empezar"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_06.jpg" target="_blank" rel="noopener" title="El grupo de damas"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_06_mini.jpg" alt="El grupo de damas"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_07.jpg" target="_blank" rel="noopener" title="Con los eucaliptos de Atalaya al fondo"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_07_mini.jpg" alt="Con los eucaliptos de Atalaya al fondo"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_08.jpg" target="_blank" rel="noopener" title="Un putt mediada la jornada"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_08_mini.jpg" alt="Un putt mediada la jornada"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_09.jpg" target="_blank" rel="noopener" title="Lucía Mourín y Javier Bros, los ganadores"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_09_mini.jpg" alt="Lucía Mourín y Javier Bros, los ganadores"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_10.jpg" target="_blank" rel="noopener" title="La entrega de trofeos"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/open-2001/open2001_10_mini.jpg" alt="La entrega de trofeos"/></a>
+</div>
+
+  <!-- ===== Campeonato de Clausura · Trofeo Hispania Services ===== -->
+  <h2 class="seccion-temp" id="clausura">Campeonato de Clausura · Trofeo Hispania Services</h2>
+  <p class="seccion-sub">Viernes 9 de noviembre · Augusta Golf Calatayud · parejas, cuatro bolas mejor bola</p>
+<div class="caja-texto">
+<div class="tabla-caja"><table class="tabla-datos"><thead><tr><th class="num">#</th><th>Pareja</th><th class="num">Puntos</th></tr></thead><tbody>
+<tr class="podio-fila"><td class="num">1</td><td>Fernando Ortega y Javier Bros</td><td class="num">35</td></tr>
+<tr class="podio-fila"><td class="num">2</td><td>Fernando López y Lucía Mourín</td><td class="num">34</td></tr>
+<tr><td class="num">3</td><td>Emilio Bachiller</td><td class="num">34</td></tr>
+<tr><td class="num">4</td><td>José L. Alonso y Juan Sanz-Bustillo</td><td class="num">34</td></tr>
+<tr><td class="num">5</td><td>José M. Mourín y Mª Carmen del Amo</td><td class="num">33</td></tr>
+<tr><td class="num">6</td><td>Gloria de Armas y Carmen Alonso</td><td class="num">29</td></tr>
+<tr><td class="num">7</td><td>Juan Bros y Miguel A. Guillén</td><td class="num">21</td></tr>
+</tbody></table></div>
+<div class="leyenda-tabla">Bola más cercana a bandera: José M. Mourín. Premios de Hispania Services, entregados tras la comida.</div>
+</div>
+<div class="fotos-tira">
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_1os.jpg" target="_blank" rel="noopener" title="Los campeones: Fernando Ortega y Javier Bros"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_1os_mini.jpg" alt="Los campeones: Fernando Ortega y Javier Bros"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_2os.jpg" target="_blank" rel="noopener" title="Los segundos: Lucía Mourín y Fernando López"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_2os_mini.jpg" alt="Los segundos: Lucía Mourín y Fernando López"/></a>
+  <a href="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_bandera.jpg" target="_blank" rel="noopener" title="Bola más cercana: José M. Mourín"><img loading="lazy" src="https://peztstoiswhmlmpyhefl.supabase.co/storage/v1/object/public/fotos/2001/clausura-2001/clausura2001_bandera_mini.jpg" alt="Bola más cercana: José M. Mourín"/></a>
+</div>
+<div class="caja-texto">
+<p>Ocho días después se jugó en Las Rejas el primer <b>Memorial Juan A. Moreno</b> (Juegos de Otoño), aplazado desde el 20 de
+     octubre; sus resultados no se conservan.</p>
+</div>
+
+  <!-- ===== El club ===== -->
+  <h2 class="seccion-temp" id="club">El club en 2001</h2>
+  <div class="caja-texto">
+    <ul>
+      <li><b>La primera web.</b> El club estrenó página propia en una modesta dirección de inicia.es; el servidor «sigue dando guerra», se quejaba el cronista, pero allí se colgaban convocatorias, resultados e imágenes.</li>
+      <li><b>«La obsesión del golf».</b> En marzo circuló entre los socios un texto en prosa y verso que personificaba la bola —«pequeña, gordezuela… y además extranjera»— como una amante caprichosa.</li>
+      <li><b>Las primeras fotos.</b> Las del Open, la Clausura y la entrega de premios viajaron por correo aquel otoño y son las más antiguas del archivo.</li>
+      <li><b>Navidad.</b> «El club de golf de tecnatom os desea una muy feliz navidad y algo así como un hoyo en uno 2002».</li>
+    </ul>
+  </div>
+
+  <p class="cierre-nota">Página completada en octubre de 2026 a partir de los reglamentos, convocatorias y hojas de resultados de 2001 conservadas como adjuntos, y de la crónica del club.</p>
 
 </div>
 
@@ -98,16 +216,24 @@
 </footer>
 
 <script>
-const ANIO = 2024;
+/* EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
+   tipo: 'apertura' | 'liga' | 'ryder' | 'clausura' | 'otro' */
+const ANIO = 2001;
 const EVENTOS = [
-  { fecha: '2024-10-26', tipo: 'otro' },
+  { fecha: '2001-03-17', tipo: 'apertura' },
+  { fecha: '2001-07-24', tipo: 'otro' },
+  { fecha: '2001-07-26', tipo: 'otro' },
+  { fecha: '2001-10-13', tipo: 'otro' },
+  { fecha: '2001-11-09', tipo: 'clausura' },
+  { fecha: '2001-11-17', tipo: 'otro' },
 ];
+
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const DIAS = ['L','M','X','J','V','S','D'];
 const mapa = {};
 EVENTOS.forEach(e => { mapa[e.fecha] = e; });
+
 const cont = document.getElementById('calendario');
-if (cont) {
 for (let m = 0; m < 12; m++) {
   const mes = document.createElement('div'); mes.className = 'mes';
   mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
@@ -126,7 +252,6 @@ for (let m = 0; m < 12; m++) {
   }
   mes.appendChild(grid);
   cont.appendChild(mes);
-}
 }
 </script>
 <script src="temporada.js"></script>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Temporada 2023 · XXXI Campeonato · Club de Golf de Tecnatom</title>
+  <link rel="icon" href="escudo.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;700&display=swap"/>
+  <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body class="pag-temporada">
+
+<!-- ===== Cabecera común (igual en todas las páginas) ===== -->
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <img src="escudo.jpg" alt="Escudo del Club de Golf de Tecnatom" width="52" height="52"/>
+      <span>
+        <span class="marca-nombre">Club de Golf de Tecnatom</span>
+        <span class="marca-lema">Desde 1993 · Madrid</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="index.html">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a class="activo" href="temporadas.html">Temporadas</a>
+      <a href="galeria.html">Galería</a>
+    </nav>
+    <!-- El año y el enlace de este botón se cambian en temporada.js -->
+    <a class="boton-temporada" href="https://clubdegolfdetecnatom.github.io/campeonato2026/"><span class="solo-ancho">Temporada </span><span class="anio-temporada">2026</span></a>
+  </div>
+</header>
+
+<div id="content">
+
+  <a class="volver" href="temporadas.html">← Todas las temporadas</a>
+  <h1 class="temporada-titulo">Temporada 2023 · XXXI Campeonato</h1>
+
+  <div class="caja-texto">
+Treinta años después del primer campeonato, el club reaparece en el archivo con las mismas firmas al pie de las circulares:
+ «Miguel Ángel, Fernando y Juan». El XXXI Campeonato de Golf de Tecnatom quiso jugar sus diez jornadas en diez campos distintos; la
+ Clausura viajó a Cádiz para jugar Valle Romano y La Reserva de Sotogrande, y la temporada terminó en un simulador: el
+ Old Course de Saint Andrews en 7 Indoor Golf, a cinco minutos de Tecnatom. En octubre el club estrenó su propia dirección de correo,
+ de la que nace el archivo actual.
+  </div>
+
+  <nav class="indice-temp" aria-label="Competiciones de la temporada">
+    <a href="#palmares">Palmarés</a>
+    <a href="#liga">La Liga</a>
+    <a href="#clausura">Clausura</a>
+    <a href="#indoor">Old Course</a>
+    <a href="#club">El club en 2023</a>
+  </nav>
+
+  <h2 class="seccion-temp" id="palmares">Palmarés</h2>
+  <p class="seccion-sub">Según las circulares conservadas. La clasificación final del XXXI Campeonato no está en el archivo.</p>
+  <div class="palmares-grid">
+    <div class="palm"><small>Clausura · Scratch</small><b>Fernando Ortega</b><span>33 puntos · Valle Romano y La Reserva</span></div>
+    <div class="palm"><small>Clausura · Stableford</small><b>Gloria Dolado</b><span>73 puntos en dos jornadas</span></div>
+    <div class="palm"><small>Old Course (simulador)</small><b>Javier Antona</b><span>7 Indoor Golf, 23 de noviembre</span></div>
+    <div class="palm"><small>Mejor tarjeta del verano</small><b>Diego Molpeceres</b><span>41 puntos en Cabanillas</span></div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-titulo">Calendario de la temporada</div>
+    <div class="cal-nota">Fechas de las circulares #09/23 a #26/23. Las jornadas del 21 y 28 de septiembre son las previstas; el 27 de mayo hubo reserva de salidas en Golf Lerma.</div>
+    <div id="calendario"></div>
+    <div id="leyenda">
+      <span class="ley-item"><span class="ley-punto" style="background:#173A2C"></span>La Liga Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
+    </div>
+  </div>
+
+  <!-- ===== XXXI Campeonato de Golf de Tecnatom ===== -->
+  <h2 class="seccion-temp" id="liga">XXXI Campeonato de Golf de Tecnatom</h2>
+  <p class="seccion-sub">Del 22 de junio al 28 de septiembre · jueves por la tarde · cuentan las cinco mejores tarjetas</p>
+<div class="caja-texto">
+<p>«Vamos a intentar que este año las diez jornadas del campeonato se acaben jugando en diez campos distintos»: El Encín,
+     Montealvar, el Olivar de la Hinojosa, la Hípica, la Base Aérea de Torrejón —con su lista de acceso enviada días antes—, Cabanillas y,
+     tras el verano, La Herrería, «un campo tan espectacular como exigente». El campo del Centro Nacional de la RFEG previsto para el 14 de
+     septiembre se cayó y la jornada volvió a Montealvar; quedaban La Dehesa y Retamares, con cena.</p>
+     <p>Fue un año de cuarenta y tantos: «Cabanillas Golf no podía ser menos. Otro 40 y tantos. Esta vez de Diego Molpeceres (41 puntos)».
+     Con aquella jornada se cerró la primera parte; la circular de agosto se dirigía a todos, «jubilados que siguen jubilados, jubilados que
+     se estrenan como tales».</p>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Clasificación a 8 de septiembre · Stableford</div>
+<div class="tabla-caja"><table class="tabla-datos"><thead><tr><th class="num">#</th><th>Jugador</th><th class="num">El Encín</th><th class="num">Montealvar</th><th class="num">Olivar H.</th><th class="num">RSHECC</th><th class="num">Torrejón</th><th class="num">Cabanillas</th><th class="num">Herrería</th><th class="num">Total</th></tr></thead><tbody>
+<tr class="podio-fila"><td class="num">1</td><td>Diego Molpeceres</td><td class="num"><b>37</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>37</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>38</b></td><td class="num"><b>41</b></td><td class="num"><b>33</b></td><td class="num">186</td></tr>
+<tr class="podio-fila"><td class="num">2</td><td>Gloria Dolado</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>35</b></td><td class="num"><b>45</b></td><td class="num"><b>31</b></td><td class="num"><b>33</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>36</b></td><td class="num">180</td></tr>
+<tr class="podio-fila"><td class="num">3</td><td>Miguel Á. Fernández</td><td class="num"><b>36</b></td><td class="num"><b>29</b></td><td class="num"><b>30</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>35</b></td><td class="num"><b>34</b></td><td class="num"><span class="flojo">·</span></td><td class="num">164</td></tr>
+<tr><td class="num">4</td><td>Tomás Recio</td><td class="num"><b>37</b></td><td class="num"><b>31</b></td><td class="num"><b>29</b></td><td class="num"><b>28</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>30</b></td><td class="num">22</td><td class="num">155</td></tr>
+<tr><td class="num">5</td><td>Javier Guerra</td><td class="num">23</td><td class="num"><b>26</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>32</b></td><td class="num"><b>42</b></td><td class="num"><b>27</b></td><td class="num"><b>24</b></td><td class="num">151</td></tr>
+<tr><td class="num">6</td><td>José E. Gutiérrez</td><td class="num"><b>32</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>33</b></td><td class="num"><b>24</b></td><td class="num"><b>35</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>27</b></td><td class="num">151</td></tr>
+<tr><td class="num">7</td><td>Juan Bros</td><td class="num"><b>37</b></td><td class="num"><b>24</b></td><td class="num"><b>23</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>38</b></td><td class="num"><b>28</b></td><td class="num"><span class="flojo">·</span></td><td class="num">150</td></tr>
+<tr><td class="num">8</td><td>Miguel Ángel Guillén</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>25</b></td><td class="num"><b>30</b></td><td class="num"><b>25</b></td><td class="num"><b>32</b></td><td class="num"><b>25</b></td><td class="num">24</td><td class="num">137</td></tr>
+<tr><td class="num">9</td><td>Manolo Cabañas</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>18</b></td><td class="num"><b>23</b></td><td class="num"><b>19</b></td><td class="num"><b>25</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>20</b></td><td class="num">105</td></tr>
+<tr><td class="num">10</td><td>Paco Sánchez</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>35</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>31</b></td><td class="num"><b>38</b></td><td class="num">104</td></tr>
+<tr><td class="num">11</td><td>Jesús Ruiz</td><td class="num"><b>42</b></td><td class="num"><b>32</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>25</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num">99</td></tr>
+<tr><td class="num">12</td><td>Miguel Á. Guerra</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>36</b></td><td class="num"><b>33</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>24</b></td><td class="num"><span class="flojo">·</span></td><td class="num">93</td></tr>
+<tr><td class="num">13</td><td>José L. Delgado</td><td class="num"><b>43</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>23</b></td><td class="num"><span class="flojo">·</span></td><td class="num">66</td></tr>
+<tr><td class="num">14</td><td>Javier Antona</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>33</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>31</b></td><td class="num">64</td></tr>
+<tr><td class="num">15</td><td>Fernando Ortega</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>34</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>28</b></td><td class="num">62</td></tr>
+<tr><td class="num">16</td><td>Agustín Tejedor</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>26</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>25</b></td><td class="num">51</td></tr>
+<tr><td class="num">17</td><td>José G. Aycart</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>19</b></td><td class="num">19</td></tr>
+</tbody></table></div>
+<div class="leyenda-tabla">Puntos stableford por jornada; en negrita, las cinco mejores. Faltaban tres jornadas.</div>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Clasificación a 8 de septiembre · Scratch</div>
+<div class="tabla-caja"><table class="tabla-datos"><thead><tr><th class="num">#</th><th>Jugador</th><th class="num">El Encín</th><th class="num">Montealvar</th><th class="num">Olivar H.</th><th class="num">RSHECC</th><th class="num">Torrejón</th><th class="num">Cabanillas</th><th class="num">Herrería</th><th class="num">Total</th></tr></thead><tbody>
+<tr class="podio-fila"><td class="num">1</td><td>Javier Guerra</td><td class="num">9</td><td class="num"><b>14</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>13</b></td><td class="num"><b>23</b></td><td class="num"><b>12</b></td><td class="num"><b>9</b></td><td class="num">71</td></tr>
+<tr class="podio-fila"><td class="num">2</td><td>Miguel Ángel Guillén</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>14</b></td><td class="num"><b>12</b></td><td class="num"><b>10</b></td><td class="num"><b>16</b></td><td class="num"><b>6</b></td><td class="num">5</td><td class="num">58</td></tr>
+<tr class="podio-fila"><td class="num">3</td><td>Miguel Á. Fernández</td><td class="num"><b>10</b></td><td class="num"><b>10</b></td><td class="num"><b>9</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>11</b></td><td class="num"><b>9</b></td><td class="num"><span class="flojo">·</span></td><td class="num">49</td></tr>
+<tr><td class="num">4</td><td>Gloria Dolado</td><td class="num"><span class="flojo">·</span></td><td class="num"><b>9</b></td><td class="num"><b>12</b></td><td class="num"><b>9</b></td><td class="num"><b>10</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>9</b></td><td class="num">49</td></tr>
+<tr><td class="num">5</td><td>Juan Bros</td><td class="num"><b>13</b></td><td class="num"><b>8</b></td><td class="num"><b>5</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>13</b></td><td class="num"><b>9</b></td><td class="num"><span class="flojo">·</span></td><td class="num">48</td></tr>
+<tr><td class="num">6</td><td>Jesús Ruiz</td><td class="num"><b>16</b></td><td class="num"><b>16</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>8</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num">40</td></tr>
+<tr><td class="num">7</td><td>Miguel Á. Guerra</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>17</b></td><td class="num"><b>15</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>8</b></td><td class="num"><span class="flojo">·</span></td><td class="num">40</td></tr>
+<tr><td class="num">8</td><td>Fernando Ortega</td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>21</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>17</b></td><td class="num">38</td></tr>
+<tr><td class="num">9</td><td>Tomás Recio</td><td class="num"><b>7</b></td><td class="num"><b>7</b></td><td class="num"><b>6</b></td><td class="num"><b>5</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>7</b></td><td class="num">2</td><td class="num">32</td></tr>
+<tr><td class="num">10</td><td>Diego Molpeceres</td><td class="num"><b>6</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>5</b></td><td class="num"><span class="flojo">·</span></td><td class="num"><b>4</b></td><td class="num"><b>8</b></td><td class="num"><b>5</b></td><td class="num">28</td></tr>
+</tbody></table></div>
+<div class="leyenda-tabla">Puntos scratch (stableford sin hándicap); en negrita, las cinco mejores.</div>
+</div>
+<div class="fotos-tira">
+  <a href="fotos/historicas/2023/montealvar.jpg" target="_blank" rel="noopener" title="Montealvar, 29 de junio"><img loading="lazy" src="fotos/historicas/2023/montealvar_mini.jpg" alt="Montealvar, 29 de junio"/></a>
+  <a href="fotos/historicas/2023/rshecc.jpg" target="_blank" rel="noopener" title="Real Sociedad Hípica, 12 de julio"><img loading="lazy" src="fotos/historicas/2023/rshecc_mini.jpg" alt="Real Sociedad Hípica, 12 de julio"/></a>
+  <a href="fotos/historicas/2023/torrejon.jpg" target="_blank" rel="noopener" title="Base Aérea de Torrejón, 20 de julio"><img loading="lazy" src="fotos/historicas/2023/torrejon_mini.jpg" alt="Base Aérea de Torrejón, 20 de julio"/></a>
+  <a href="fotos/historicas/2023/cabanillas.jpg" target="_blank" rel="noopener" title="Cabanillas, 27 de julio"><img loading="lazy" src="fotos/historicas/2023/cabanillas_mini.jpg" alt="Cabanillas, 27 de julio"/></a>
+  <a href="fotos/historicas/2023/cabanillas_riego.jpg" target="_blank" rel="noopener" title="Las «atenciones» de Cabanillas"><img loading="lazy" src="fotos/historicas/2023/cabanillas_riego_mini.jpg" alt="Las «atenciones» de Cabanillas"/></a>
+  <a href="fotos/historicas/2023/herreria.jpg" target="_blank" rel="noopener" title="La Herrería, 7 de septiembre"><img loading="lazy" src="fotos/historicas/2023/herreria_mini.jpg" alt="La Herrería, 7 de septiembre"/></a>
+</div>
+
+  <!-- ===== Campeonato de Clausura ===== -->
+  <h2 class="seccion-temp" id="clausura">Campeonato de Clausura</h2>
+  <p class="seccion-sub">Puente de la Almudena · Golf Valle Romano y La Reserva de Sotogrande · dos jornadas</p>
+<div class="caja-texto">
+<p>«Se disputó, como viene siendo ya habitual, en dos jornadas». La segunda, en La Reserva, «un campo en los primerísimos
+     puestos de todas las listas de mejores campos de España. Simplemente espectacular». Se sumaron las dos tarjetas y, tras la cena, se
+     entregaron los trofeos de toda la temporada.</p>
+</div>
+<div class="dos-col">
+<div class="caja-texto">
+<div class="caja-titulo">Scratch</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.º</span><span class="quien">Fernando Ortega</span><span class="premio">33 puntos</span></li>
+  <li><span class="pos">2.º</span><span class="quien">Javier Guerra</span><span class="premio">29 puntos</span></li>
+</ol>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Stableford</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.ª</span><span class="quien">Gloria Dolado</span><span class="premio">73 puntos</span></li>
+  <li><span class="pos">2.º</span><span class="quien">José M. Mourín</span><span class="premio">64 puntos</span></li>
+</ol>
+</div>
+</div>
+<p class="seccion-sub">Bola más lejana: Jesús Barrientos. Bola más cercana a bandera: Juan Bros.</p>
+
+  <!-- ===== Saint Andrews en el simulador ===== -->
+  <h2 class="seccion-temp" id="indoor">Saint Andrews en el simulador</h2>
+  <p class="seccion-sub">Jueves 23 de noviembre · 7 Indoor Golf (San Sebastián de los Reyes)</p>
+<div class="caja-texto">
+<p>«¿Se acabó la temporada? Pues no». Diecisiete años después del viaje a Escocia, el club volvió al Old Course, esta vez
+     simulado. Hubo clinic previo para corregir el slice —«alguno jugó dopado»— y, «como viene siendo casi habitual esta temporada, un par de
+     puntuaciones de 40 o más». «¿Augusta?, ¿Pebble Beach?… No lo descartéis». En 2024 la temporada arrancaría precisamente allí.</p>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Clasificación</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.º</span><span class="quien">Javier Antona</span></li>
+  <li><span class="pos">2.º</span><span class="quien">Juan Bros</span></li>
+  <li><span class="pos">3.º</span><span class="quien">Fernando Ortega</span></li>
+</ol>
+<p>Bola más cercana: Tomás Recio. Premios de 7 Indoor Golf.</p>
+</div>
+
+  <!-- ===== El club ===== -->
+  <h2 class="seccion-temp" id="club">El club en 2023</h2>
+  <div class="caja-texto">
+    <ul>
+      <li><b>Nuevo correo del club.</b> El 18 de octubre se creó la cuenta del club; la circular de la Clausura ya salió desde ella.</li>
+      <li><b>Cuentas al día.</b> Antes de la Clausura se repasaron las cuentas del club y se recordó la cuota a quien faltaba.</li>
+      <li><b>Navidad.</b> «Con nuestro mejor deseo de felicidad para estas próximas fiestas y un 2024 lleno de encuentros golfísticos».</li>
+    </ul>
+  </div>
+
+  <p class="cierre-nota">Página completada en octubre de 2026 a partir de las circulares #09/23 a #26/23, las clasificaciones del XXXI Campeonato y las fotos adjuntas.</p>
+
+</div>
+
+<!-- ===== Pie común ===== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-nombre">Club de Golf de Tecnatom</div>
+    <div>Web mantenida por la Oficina del CaddIA Master</div>
+  </div>
+</footer>
+
+<script>
+/* EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
+   tipo: 'apertura' | 'liga' | 'ryder' | 'clausura' | 'otro' */
+const ANIO = 2023;
+const EVENTOS = [
+  { fecha: '2023-05-27', tipo: 'otro' },
+  { fecha: '2023-06-22', tipo: 'liga' },
+  { fecha: '2023-06-29', tipo: 'liga' },
+  { fecha: '2023-07-06', tipo: 'liga' },
+  { fecha: '2023-07-12', tipo: 'liga' },
+  { fecha: '2023-07-20', tipo: 'liga' },
+  { fecha: '2023-07-27', tipo: 'liga' },
+  { fecha: '2023-09-07', tipo: 'liga' },
+  { fecha: '2023-09-14', tipo: 'liga' },
+  { fecha: '2023-09-21', tipo: 'liga' },
+  { fecha: '2023-09-28', tipo: 'liga' },
+  { fecha: '2023-10-07', tipo: 'otro' },
+  { fecha: '2023-11-10', tipo: 'clausura' },
+  { fecha: '2023-11-11', tipo: 'clausura' },
+  { fecha: '2023-11-23', tipo: 'otro' },
+];
+
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DIAS = ['L','M','X','J','V','S','D'];
+const mapa = {};
+EVENTOS.forEach(e => { mapa[e.fecha] = e; });
+
+const cont = document.getElementById('calendario');
+for (let m = 0; m < 12; m++) {
+  const mes = document.createElement('div'); mes.className = 'mes';
+  mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
+  const grid = document.createElement('div'); grid.className = 'mes-grid';
+  DIAS.forEach(d => { grid.innerHTML += '<div class="dia-cab">' + d + '</div>'; });
+  const primero = new Date(ANIO, m, 1);
+  let offset = (primero.getDay() + 6) % 7;
+  for (let v = 0; v < offset; v++) grid.innerHTML += '<div class="dia vacio">·</div>';
+  const nDias = new Date(ANIO, m + 1, 0).getDate();
+  for (let d = 1; d <= nDias; d++) {
+    const clave = ANIO + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const ev = mapa[clave];
+    let cls = 'dia';
+    if (ev) { cls += ' ev-' + ev.tipo; if (ev.tent) cls += ' tentativo'; }
+    grid.innerHTML += '<div class="' + cls + '">' + d + '</div>';
+  }
+  mes.appendChild(grid);
+  cont.appendChild(mes);
+}
+</script>
+<script src="temporada.js"></script>
+</body>
+</html>

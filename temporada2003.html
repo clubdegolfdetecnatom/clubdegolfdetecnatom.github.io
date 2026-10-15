@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Temporada 2003 · Club de Golf de Tecnatom</title>
+  <title>Temporada 2003 · XI Campeonato · Club de Golf de Tecnatom</title>
   <link rel="icon" href="escudo.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -34,56 +34,162 @@
 </header>
 
 <div id="content">
+
   <a class="volver" href="temporadas.html">← Todas las temporadas</a>
   <h1 class="temporada-titulo">Temporada 2003 · XI Campeonato</h1>
-  <div class="aviso">
-    ⚠️ Datos reconstruidos del archivo de circulares. Algunos resultados se publicaron en su día en la web del club y no se conservan.
+
+  <div class="caja-texto">
+La temporada se puso en marcha el 19 de febrero, en una reunión de lanzamiento en el aula 205, y arrancó lejos de casa:
+ un fin de semana en Murcia con el Campeonato de Apertura en Altorreal y la familia Mendizábal de anfitriona. Después llegaron
+ el XI Campeonato —la Liga, trece jornadas de abril a julio—, el IX Open de Tecnatom en Novo Sancti Petri, convertido por Manolo Muiños
+ en «un acontecimiento a ser reseñado en letras de molde», y una Clausura en Cabanillas que la niebla dejó en nueve hoyos.
+ Las circulares las firmaba Juan Bros, siempre con la misma despedida: «Hoyo en uno».
   </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Campeonato de Apertura · Trofeo Viajes El Corte Inglés</div>
-        <div class="e-detalle">29 mar 2003 · Club de Golf Altorreal (Molina de Segura, Murcia)<br/>Viaje de fin de semana a Murcia, con la familia Mendizábal como anfitriona. El club les obsequió con un regalo a los postres de la comida.<br/>Premios: 1º y 2º de caballeros y damas, bola más cercana y bola más larga.<br/><em>Los resultados se publicaron en su día en la web del club; el documento no se conserva.</em></div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
+
+  <nav class="indice-temp" aria-label="Competiciones de la temporada">
+    <a href="#palmares">Palmarés</a>
+    <a href="#apertura">Apertura</a>
+    <a href="#liga">La Liga</a>
+    <a href="#open">IX Open</a>
+    <a href="#clausura">Clausura</a>
+    <a href="#club">El club en 2003</a>
+  </nav>
+
+  <h2 class="seccion-temp" id="palmares">Palmarés</h2>
+  <p class="seccion-sub">Lo que conserva el archivo. Los resultados de la Apertura y del Open se publicaron en la web del club de entonces y no han llegado hasta hoy.</p>
+  <div class="palmares-grid">
+    <div class="palm"><small>XI Campeonato · La Liga</small><b>Juan Bros y Luis Hernández</b><span>Líderes a mitad de temporada (109 pts) · final no conservado</span></div>
+    <div class="palm"><small>Clausura · Scratch</small><b>Fernando Ortega</b><span>91 golpes · Cabanillas, 29 de noviembre</span></div>
+    <div class="palm"><small>Clausura · Hándicap</small><b>María Moreno</b><span>38 puntos, la mejor tarjeta del día</span></div>
+    <div class="palm"><small>1.ª jornada · Pablo Hernández</small><b>Ángel L. González y Carlos Mendizábal</b><span>Empatados, con trofeo del propio campo</span></div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-titulo">Calendario de la temporada</div>
+    <div class="cal-nota">Fechas tomadas de las circulares; las jornadas de julio son las programadas en la circular #17/03.</div>
+    <div id="calendario"></div>
+    <div id="leyenda">
+      <span class="ley-item"><span class="ley-punto" style="background:#B45309"></span>Apertura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#173A2C"></span>La Liga Tecnatom</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#BE123C"></span>Clausura</span>
+      <span class="ley-item"><span class="ley-punto" style="background:#475569"></span>Otros eventos</span>
     </div>
   </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">XI Campeonato de Golf de Tecnatom · La Liga</div>
-        <div class="e-detalle">Abril–julio · 13 jornadas · cuota de inscripción de 30 € por jugador<br/>Campos: Pablo Hernández, Las Llanás, La Dehesa, Valdeláguila, Olivar de la Hinojosa, RSHECC (Norte y Sur), Retamares, RACE, Layos y Torrejón.<br/>Se puntuaban las <strong>seis mejores tarjetas</strong> de cada jugador.<br/><strong>Clasificación a mitad de temporada (18 jun):</strong> 1º Juan Bros (109 pts) · 2º Luis Hernández (109) · 3º Francisco Sánchez (107)<br/><em>La clasificación final no se conserva.</em></div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
+
+  <!-- ===== Campeonato de Apertura · Trofeo Viajes El Corte Inglés ===== -->
+  <h2 class="seccion-temp" id="apertura">Campeonato de Apertura · Trofeo Viajes El Corte Inglés</h2>
+  <p class="seccion-sub">29 de marzo · Club de Golf Altorreal (Molina de Segura, Murcia) · stableford con hándicap Tecnatom</p>
+<div class="caja-texto">
+<p>«Nunca la celebración de uno de los campeonatos del club tuvo tanta información anexa»: José Luis Mendizábal, «Mendi»,
+     preparó planos, hoteles, restaurante y hasta el acceso a su finca. Diecisiete jugadores en cinco partidos, con salidas desde las 13:04;
+     el primero lo formaban Fernando Ortega, José M. Mourín, Emilio Bachiller y Juan Bros.</p>
+     <p>Cena y entrega de premios el sábado en el restaurante La Pequeña, y el domingo cordero a la brasa en la finca de los Mendizábal,
+     a quienes el club regaló un detalle a los postres. La circular que cerró las cuentas lo resumió así: «procede descansar (el que paga, descansa)».</p>
+     <p>Premios: 1.º y 2.º de caballeros, 1.ª y 2.ª de damas, bola más cercana y bola más larga. La clasificación se publicó en la web
+     del club y no se conserva.</p>
+</div>
+<div class="fotos-tira">
+  <a href="fotos/historicas/2003/altorreal_1.jpg" target="_blank" rel="noopener" title="«No vais a ganar»"><img loading="lazy" src="fotos/historicas/2003/altorreal_1_mini.jpg" alt="«No vais a ganar»"/></a>
+  <a href="fotos/historicas/2003/altorreal_2.jpg" target="_blank" rel="noopener" title="«Pareja feliz»"><img loading="lazy" src="fotos/historicas/2003/altorreal_2_mini.jpg" alt="«Pareja feliz»"/></a>
+  <a href="fotos/historicas/2003/altorreal_3.jpg" target="_blank" rel="noopener" title="«Pateando»"><img loading="lazy" src="fotos/historicas/2003/altorreal_3_mini.jpg" alt="«Pateando»"/></a>
+  <a href="fotos/historicas/2003/altorreal_4.jpg" target="_blank" rel="noopener" title="«Sale el líder»"><img loading="lazy" src="fotos/historicas/2003/altorreal_4_mini.jpg" alt="«Sale el líder»"/></a>
+  <a href="fotos/historicas/2003/altorreal_5.jpg" target="_blank" rel="noopener" title="«Se te va a ir al seto»"><img loading="lazy" src="fotos/historicas/2003/altorreal_5_mini.jpg" alt="«Se te va a ir al seto»"/></a>
+  <a href="fotos/historicas/2003/altorreal_6.jpg" target="_blank" rel="noopener" title="«Swing de salón»"><img loading="lazy" src="fotos/historicas/2003/altorreal_6_mini.jpg" alt="«Swing de salón»"/></a>
+  <a href="fotos/historicas/2003/altorreal_7.jpg" target="_blank" rel="noopener" title="«Último golpe de la ganadora»"><img loading="lazy" src="fotos/historicas/2003/altorreal_7_mini.jpg" alt="«Último golpe de la ganadora»"/></a>
+  <a href="fotos/historicas/2003/altorreal_8.jpg" target="_blank" rel="noopener" title="«Un bluff, solo pose»"><img loading="lazy" src="fotos/historicas/2003/altorreal_8_mini.jpg" alt="«Un bluff, solo pose»"/></a>
+</div>
+
+  <!-- ===== XI Campeonato de Golf de Tecnatom · La Liga ===== -->
+  <h2 class="seccion-temp" id="liga">XI Campeonato de Golf de Tecnatom · La Liga</h2>
+  <p class="seccion-sub">Trece jornadas de abril a julio · stableford con hándicap Tecnatom · cuota de 30 € · cuentan las seis mejores tarjetas</p>
+<div class="caja-texto">
+<p>El calendario inicial tuvo que rehacerse varias veces: Las Llanás no llegó a inaugurarse a tiempo y no siempre había campo
+     «accesible a todos» los viernes. La primera jornada se jugó un domingo en Pablo Hernández (Novés), con fruta y bebida a mitad de recorrido
+     y trofeos regalados por el propio campo. Después vinieron Valdeláguila, Layos, Retamares, la Real Sociedad Hípica, La Dehesa, Torrejón
+     y el RACE.</p>
+     <p>El 13 de junio, en Valdeláguila, hizo 40 grados a la sombra: «Hay golfistas y hay golfistas de verdad». Solo Paco Sánchez,
+     José Mª Sánchez y Luis Hernández completaron los 18 hoyos. Con la jornada intensiva llegaron los puntos: el primer 40 en Retamares
+     y, una semana después, el récord de la temporada en 41.</p>
+     <p>La clasificación final servía además para formar los equipos de la AA Cup de septiembre.</p>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Clasificación provisional tras cinco jornadas (18 de junio)</div>
+<div class="tabla-caja"><table class="tabla-datos"><thead><tr><th class="num">#</th><th>Jugador</th><th class="num">P. Hdez.</th><th class="num">Valdel.</th><th class="num">Layos</th><th class="num">Valdel.</th><th class="num">Retam.</th><th class="num">Media</th><th class="num">Puntos</th></tr></thead><tbody>
+<tr class="podio-fila"><td class="num">1</td><td>Juan Bros</td><td class="num">31</td><td class="num">15</td><td class="num">29</td><td class="num">·</td><td class="num">34</td><td class="num">27,25</td><td class="num">109</td></tr>
+<tr class="podio-fila"><td class="num">2</td><td>Luis Hernández</td><td class="num">17</td><td class="num">·</td><td class="num">29</td><td class="num">27</td><td class="num">36</td><td class="num">27,25</td><td class="num">109</td></tr>
+<tr><td class="num">3</td><td>Francisco Sánchez</td><td class="num">21</td><td class="num">15</td><td class="num">29</td><td class="num">18</td><td class="num">24</td><td class="num">21,40</td><td class="num">107</td></tr>
+<tr><td class="num">4</td><td>José Mª Sánchez</td><td class="num">·</td><td class="num">20</td><td class="num">21</td><td class="num">22</td><td class="num">37</td><td class="num">25,00</td><td class="num">100</td></tr>
+<tr><td class="num">5</td><td>Emilio Mínguez</td><td class="num">25</td><td class="num">23</td><td class="num">29</td><td class="num">·</td><td class="num">·</td><td class="num">25,67</td><td class="num">77</td></tr>
+<tr><td class="num">6</td><td>José L. Rembado</td><td class="num">·</td><td class="num">33</td><td class="num">·</td><td class="num">·</td><td class="num">37</td><td class="num">35,00</td><td class="num">70</td></tr>
+<tr><td class="num">7</td><td>Santiago San Antonio</td><td class="num">30</td><td class="num">·</td><td class="num">·</td><td class="num">·</td><td class="num">37</td><td class="num">33,50</td><td class="num">67</td></tr>
+<tr><td class="num">8</td><td>Emilio Bachiller</td><td class="num">·</td><td class="num">·</td><td class="num">26</td><td class="num">·</td><td class="num">40</td><td class="num">33,00</td><td class="num">66</td></tr>
+<tr><td class="num">9</td><td>María Moreno</td><td class="num">26</td><td class="num">·</td><td class="num">36</td><td class="num">·</td><td class="num">·</td><td class="num">31,00</td><td class="num">62</td></tr>
+<tr><td class="num">10</td><td>Fernando Ortega</td><td class="num">28</td><td class="num">·</td><td class="num">·</td><td class="num">·</td><td class="num">22</td><td class="num">25,00</td><td class="num">50</td></tr>
+</tbody></table></div>
+<div class="leyenda-tabla">Puntos stableford de cada jornada (27 abr, 9 may, 1 jun, 13 jun y 17 jun). Hasta ese día habían jugado 28 jugadores; se muestran los diez primeros. La clasificación final no se conserva.</div>
+</div>
+
+  <!-- ===== IX Open de Tecnatom · Trofeo Sr. Muiños ===== -->
+  <h2 class="seccion-temp" id="open">IX Open de Tecnatom · Trofeo Sr. Muiños</h2>
+  <p class="seccion-sub">17 de mayo · Novo Sancti Petri (Chiclana, Cádiz) · fin de semana del 15 al 18 de mayo</p>
+<div class="caja-texto">
+<p>Veinte jugadores, cinco partidos desde las 12:30 por el recorrido B, y un programa patrocinado por Manolo Muiños y sus
+     sponsors: visita guiada por Cádiz, travesía en el vaporcito hasta El Puerto de Santa María, mariscada, visita a las bodegas
+     Terry, pescadito frito al atardecer y, tras el torneo, una fiesta de entrega de premios con escenario, flores y chirigota.</p>
+     <p>La crónica de la circular #10/03 lo contó así: «Unos hablarán de la visita guiada a Cádiz… Otros del crucero en el vaporcito…
+     Y TODOS hablaremos de Manolo Muiños y de su familia, volcados de corazón con sus invitados. Manolo eres muy grande.»</p>
+     <p>Los resultados se publicaron en la web del club y en la de la Federación; no se conservan.</p>
+</div>
+
+  <!-- ===== Campeonato de Clausura · Trofeo Hispania Service ===== -->
+  <h2 class="seccion-temp" id="clausura">Campeonato de Clausura · Trofeo Hispania Service</h2>
+  <p class="seccion-sub">29 de noviembre · Cabanillas Golf (Guadalajara) · 17 jugadores</p>
+<div class="caja-texto">
+«Nunca antes nos las habíamos visto, lo de ver es un decir, con tan espesa niebla.» Completados los nueve primeros hoyos hubo
+     que dar por terminado el campeonato. De común acuerdo con los participantes se dio por jugada una segunda vuelta con idéntico resultado
+     a la primera, y así se elaboraron las clasificaciones a 18 hoyos. El premio scratch prevalecía sobre el hándicap.
+</div>
+<div class="dos-col">
+<div class="caja-texto">
+<div class="caja-titulo">Scratch</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.º</span><span class="quien">Fernando Ortega</span><span class="premio">91 golpes</span></li>
+  <li><span class="pos">2.º</span><span class="quien">Emilio Bachiller</span><span class="premio">92 golpes</span></li>
+  <li><span class="pos">3.º</span><span class="quien">Carlos Sanjuan</span><span class="premio">98 golpes</span></li>
+</ol>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Hándicap</div>
+<ol class="podio-lista">
+  <li><span class="pos">1.ª</span><span class="quien">María Moreno</span><span class="premio">38 puntos</span></li>
+  <li><span class="pos">3.º</span><span class="quien">Carlos Sanjuan</span><span class="premio">34 puntos · trofeo del 2.º</span></li>
+</ol>
+<p>Emilio Bachiller fue 2.º con 34 puntos, pero ya tenía el trofeo scratch.</p>
+</div>
+</div>
+<div class="caja-texto">
+<div class="caja-titulo">Premios especiales</div>
+<p>Bola más cercana: Emilio Bachiller · Bola más larga: Fernando Ortega (caballeros) y Mª Carmen del Amo (damas).</p>
+</div>
+
+  <!-- ===== El club ===== -->
+  <h2 class="seccion-temp" id="club">El club en 2003</h2>
+  <div class="caja-texto">
+    <ul>
+      <li><b>La web, «en obras».</b> La página del club se mudó a <i>inicia.es/de/golftcom/webgolf</i>; allí se colgaban resultados, hándicaps y fotos de cada jornada.</li>
+      <li><b>Hándicap Tecnatom.</b> Todas las competiciones se jugaron con el hándicap propio del club, revisado tras cada jornada.</li>
+      <li><b>Corporate Golf Challenge.</b> Por primera vez podía formar parte del equipo cualquier miembro del club, siempre que al menos uno fuera de Tecnatom. Fase regional en El Escorial.</li>
+      <li><b>AA Cup.</b> La reunión de lanzamiento aprobó un nuevo formato por equipos, la AA Cup, que sustituía al AA Match Play.</li>
+      <li><b>Cantera.</b> «Un lujo y una enorme satisfacción»: Cristina Manrique, campeona de Madrid infantil en la clasificación hándicap.</li>
+      <li><b>Lotería.</b> Mendi coordinó un año más el número compartido de Navidad: «la lotería no debe fiarse».</li>
+    </ul>
   </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Open de Tecnatom 2003</div>
-        <div class="e-detalle">Mayo 2003<br/>Resultados, tarjetas y fotos publicados en la web del club (<em>inicia.es/de/golftcom/webgolf</em>) y en la web de la Federación.<br/><em>Los documentos no se conservan en el archivo de correos.</em></div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Corporate Golf Challenge</div>
-        <div class="e-detalle">Marzo 2003 · el club vuelve a inscribirse en el campeonato de empresas.</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
-  <div class="evento">
-    <div class="e-row">
-      <div class="e-info">
-        <div class="e-nombre">Campeonato de Clausura · Trofeo Hispania Service</div>
-        <div class="e-detalle">29 nov 2003 · Cabanillas Golf (Guadalajara) · 17 participantes<br/>Solo pudieron jugarse 9 hoyos por el mal tiempo; de común acuerdo se duplicó el resultado para las clasificaciones a 18.<br/><strong>Scratch:</strong> 1º Fernando Ortega (91 golpes) · 2º Emilio Bachiller (92) · 3º Carlos Sanjuán (98)<br/><strong>Handicap:</strong> 1ª María Moreno (38 pts) · 2º Emilio Bachiller (34) · 3º Carlos Sanjuán (34)<br/><em>Bola más cercana:</em> Emilio Bachiller · <em>Bola más larga:</em> Fernando Ortega y Mª Carmen del Amo</div>
-      </div>
-      <div class="e-badge badge-doc">Archivo</div>
-    </div>
-  </div>
+<div class="fotos-tira">
+  <a href="fotos/historicas/2003/septiembre_1.jpg" target="_blank" rel="noopener" title="Reunión del club, septiembre de 2003"><img loading="lazy" src="fotos/historicas/2003/septiembre_1_mini.jpg" alt="Reunión del club, septiembre de 2003"/></a>
+  <a href="fotos/historicas/2003/septiembre_2.jpg" target="_blank" rel="noopener" title="Reunión del club, septiembre de 2003"><img loading="lazy" src="fotos/historicas/2003/septiembre_2_mini.jpg" alt="Reunión del club, septiembre de 2003"/></a>
+</div>
+
+  <p class="cierre-nota">Página completada en octubre de 2026 a partir de las circulares #01/03 a #17/03 y #37/03 a #42/03 (no se conservan las de julio a noviembre), el reglamento del XI Campeonato y los resultados de la Clausura.</p>
 
 </div>
 
@@ -95,6 +201,57 @@
   </div>
 </footer>
 
+<script>
+/* EDITAR AQUÍ LAS FECHAS: una línea por día de evento.
+   tipo: 'apertura' | 'liga' | 'ryder' | 'clausura' | 'otro' */
+const ANIO = 2003;
+const EVENTOS = [
+  { fecha: '2003-02-19', tipo: 'otro' },
+  { fecha: '2003-03-29', tipo: 'apertura' },
+  { fecha: '2003-03-30', tipo: 'apertura' },
+  { fecha: '2003-04-27', tipo: 'liga' },
+  { fecha: '2003-05-09', tipo: 'liga' },
+  { fecha: '2003-05-17', tipo: 'otro' },
+  { fecha: '2003-06-01', tipo: 'liga' },
+  { fecha: '2003-06-13', tipo: 'liga' },
+  { fecha: '2003-06-17', tipo: 'liga' },
+  { fecha: '2003-06-19', tipo: 'liga' },
+  { fecha: '2003-06-26', tipo: 'liga' },
+  { fecha: '2003-07-01', tipo: 'liga' },
+  { fecha: '2003-07-03', tipo: 'liga' },
+  { fecha: '2003-07-09', tipo: 'liga' },
+  { fecha: '2003-07-15', tipo: 'liga' },
+  { fecha: '2003-07-17', tipo: 'liga' },
+  { fecha: '2003-07-22', tipo: 'liga' },
+  { fecha: '2003-11-29', tipo: 'clausura' },
+];
+
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DIAS = ['L','M','X','J','V','S','D'];
+const mapa = {};
+EVENTOS.forEach(e => { mapa[e.fecha] = e; });
+
+const cont = document.getElementById('calendario');
+for (let m = 0; m < 12; m++) {
+  const mes = document.createElement('div'); mes.className = 'mes';
+  mes.innerHTML = '<div class="mes-nombre">' + MESES[m] + '</div>';
+  const grid = document.createElement('div'); grid.className = 'mes-grid';
+  DIAS.forEach(d => { grid.innerHTML += '<div class="dia-cab">' + d + '</div>'; });
+  const primero = new Date(ANIO, m, 1);
+  let offset = (primero.getDay() + 6) % 7;
+  for (let v = 0; v < offset; v++) grid.innerHTML += '<div class="dia vacio">·</div>';
+  const nDias = new Date(ANIO, m + 1, 0).getDate();
+  for (let d = 1; d <= nDias; d++) {
+    const clave = ANIO + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const ev = mapa[clave];
+    let cls = 'dia';
+    if (ev) { cls += ' ev-' + ev.tipo; if (ev.tent) cls += ' tentativo'; }
+    grid.innerHTML += '<div class="' + cls + '">' + d + '</div>';
+  }
+  mes.appendChild(grid);
+  cont.appendChild(mes);
+}
+</script>
 <script src="temporada.js"></script>
 </body>
 </html>
